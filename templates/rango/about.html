@@ -18,9 +18,13 @@
         </div>
     </div>
 </div>
-    <div>
-        Your Visits: {{ visits }}<br />
-    </div>
+<div>
+    Your Visits: {{ visits }}<br />
+</div>
+<button class="btn btn-primary" onclick="alert('You clicked the button using inline Javascript.');">
+Click me - I run on Javascript!
+</button>
+
     <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" /> 
     <img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a Cat." /> 
 {% endblock %}

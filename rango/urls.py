@@ -15,7 +15,11 @@ urlpatterns = [
     path('restricted/', views.restricted, name='restricted'),
     #path('logout/', views.user_logout, name='logout'),
     #path('search/', views.search, name='search')
-    path('register_profile/', views.register_profile, name='register_profile'),
+    path('register_profile/', views.RegisterProfileView.as_view(), name='register_profile'),
     path('profile/<username>/', views.ProfileView.as_view(), name='profile'),
+    path('suggest/', views.CategorySuggestionView.as_view(), name='suggest'),
+    #path('like_category/', views.LikeCategoryView.as_view(), name='like_category'),
+    path('search_add_page/', views.SearchAddPageView.as_view(), name='search_add_page'),
+    path('goto/', views.goto_url, name='goto'),
 ]
 
