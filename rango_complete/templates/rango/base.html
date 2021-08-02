@@ -23,26 +23,35 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-danger p-0">
-                <a class="navbar-brand p-2" href="{% url 'rango:index' %}">Olympic</a>
+                <a class="navbar-brand p-2" href="{% url 'rango:index' %}">Olympic News</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
+                    {% if user.is_authenticated %}
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link" href="{% url 'rango:index' %}">Home</a></li>
+                        <li class="nav-item "><a class="nav-link" href="{% url 'rango:team' %}">Teams</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:add_category' %}">Add Sport</a></li>
                         <li class="nav-item "><a class="nav-link" href="{% url 'rango:about' %}">About</a></li>
-                        
-                        {% if user.is_authenticated %}
-                        <li class="nav-item "><a class="nav-link" href="{% url 'rango:restricted' %}">Restricted</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:add_category' %}">Add Category</a></li>
+                    </ul>    
+                    <ul class="navbar-nav ml-md-auto">
                         <li class="nav-item"><a class="nav-link" href="{% url 'auth_password_change' %}">Change Password</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'rango:profile' user.username %}">Profile</a></li>
-                        {% else %}
+                    </ul>
+                    {% else %}
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:index' %}">Home</a></li>
+                        <!--<li class="nav-item "><a class="nav-link" href="{% url 'rango:about' %}">Teams</a></li>-->
+                        <li class="nav-item "><a class="nav-link" href="{% url 'rango:about' %}">About</a></li>
+                    </ul>    
+                    <ul class="navbar-nav ml-md-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'auth_login' %}">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'registration_register' %}">Sign Up</a></li>
-                        <li class="nav-item "><a class="nav-link" href="{% url 'auth_login' %}">Login</a></li>
-                        {% endif %}
+                    </ul>
+                    {% endif %}
                     </ul>
                 </div>
             </nav>
@@ -68,7 +77,7 @@
                     <!-- FOOTER -->
                     <footer>
                         <p class="float-right"><a href="#">Back to top</a></p>
-                        <p>&copy; 2021 IT Production Workshop &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+                        <p>&copy; 2021 OLYMPIC NEWS &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
                     </footer>
                 </main>
             </div>

@@ -420,3 +420,6 @@ def goto_url(request):
         return redirect(selected_page.url)
     
     return redirect(reverse('rango:index'))
+
+def team(request):
+    return render(request, 'rango/team.html') 

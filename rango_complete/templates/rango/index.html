@@ -7,27 +7,21 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="jumbotron p-4">
+
+<div class="jumbotron p-2">
     <div class="container">
-        <h1 class="jumbotron-heading">Rango says...</h1>
-        <div>
-            <h2 class="h2">
-            {% if user.is_authenticated %}
-                howdy {{ user.username }}!
-            {% else %}
-                hey there partner!
-            {% endif %}
-            </h2> 
-        <strong>{{ boldmessage }}</strong>
-        </div>
+        <h1 class="jumbotron-heading">Welcome to Olympic News!</h1>
     </div>
+    <img src="{% static 'images/Tokyo.png' %}" alt="Picture of Tokyo" />
 </div>
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="card mb-6">
                 <div class="card-body">
-                    <h2>Most Liked Categories</h2>
+                    <h2>Most Viewed Sports</h2>
                     <p class="card-text">
                     {% if categories %}
                     <ul class="list-group">
@@ -48,7 +42,7 @@
         <div class="col-md-6">
             <div class="card mb-6">
                 <div class="card-body">
-                    <h2>Most Viewed Pages</h2>
+                    <h2>Most Viewed News</h2>
                     <p class="card-text">
 
                     {% if pages %}
@@ -69,6 +63,5 @@
     </div>
 </div>
 
-<img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
+
 {% endblock %} 
-    
