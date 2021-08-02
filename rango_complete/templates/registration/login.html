@@ -7,12 +7,24 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="jumbotron p-4">
-    <div class="container">
-        <h1 class="jumbotron-heading">Login</h1>
+<body class="text-center">
+    
+    <main class="form-signin">
+      <form class="form-signin" role="form" method="post" action=".">
+        {% csrf_token %}
+        <img class="mb-4" src="{% static 'images/favicon.ico' %}" alt width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <div class="w-50 h-80 mx-auto">
+        <label for="inputUsername" class="sr-only">Username</label><br />
+        <input style="height: 50px;" type="text" name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input style="height: 50px;" type="password" name="password" id="id_password" class="form-control" placeholder="Password" required><br />
     </div>
-</div>
+        <button class="w-50 btn btn-lg btn-outline-danger" type="submit">Sign in</button>
+      </form>
+    </main>
 
+<<<<<<< HEAD
 <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet">
 <div class="container">
     <form class="form-signin" role="form" method="post" action=".">
@@ -26,9 +38,9 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Sign in</button>
     </form>
 </div>
+=======
+</body>
+<br />
+>>>>>>> zsj
 
-<!--<p>
-    Not registered?
-    <a href="{% url 'registration_register' %}">Register here!</a>
-</p>-->
 {% endblock %}
