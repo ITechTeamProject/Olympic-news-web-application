@@ -2,7 +2,7 @@ import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rango_complete.settings') 
 import django
 django.setup()
-from rango.models import Category, Page
+from rango.models import Category, Page, Team
 
 def populate():
     # First, we will create lists of dictionaries containing the pages
@@ -65,12 +65,21 @@ def populate():
         'url':'https://olympics.com/tokyo-2020/en/news/exceptional-china-win-diving-gold-in-synchronised-3m-springboard',
         'views':7} ]
 
-    cats = {'Archery': {'pages': archery_pages, 'views': 128, 'likes': 64},
-            'Athletics': {'pages': athletics_pages, 'views': 64, 'likes': 32}, 
-            'Badminton': {'pages': badminton_pages, 'views': 32, 'likes': 16},
-            'Baseball': {'pages': baseball_pages, 'views': 32, 'likes': 16},
-            'Basketball': {'pages': basketball_pages, 'views': 30, 'likes': 18},
-            'Diving': {'pages': diving_pages, 'views': 34, 'likes': 10},}
+    archery_teams = [
+         {'country':'Canada',
+          'likes':1125},
+         {'country':'Janpan',
+          'likes':225},
+         {'country':'People\'s Republic of China',
+          'likes':5217}
+    ]
+
+    cats = {'Archery': {'pages': archery_pages, 'teams': archery_teams, 'views': 128, 'likes': 64},
+            'Athletics': {'pages': athletics_pages, 'teams': archery_teams,'views': 64, 'likes': 32}, 
+            'Badminton': {'pages': badminton_pages, 'teams': archery_teams,'views': 32, 'likes': 16},
+            'Baseball': {'pages': baseball_pages, 'teams': archery_teams,'views': 32, 'likes': 16},
+            'Basketball': {'pages': basketball_pages, 'teams': archery_teams,'views': 30, 'likes': 18},
+            'Diving': {'pages': diving_pages, 'teams': archery_teams,'views': 34, 'likes': 10},}
 
     # If you want to add more categories or pages,
     # add them to the dictionaries above.
@@ -81,11 +90,15 @@ def populate():
         c = add_cat(cat, views=cat_data['views'], likes=cat_data['likes'])
         for p in cat_data['pages']:
             add_page(c, p['title'], p['url'], views=p['views'])
+        for t in cat_data['teams']:
+            add_team(c, t['country'], t['likes'])
 
     # Print out the categories we have added.
     for c in Category.objects.all():
         for p in Page.objects.filter(category=c):
             print(f'- {c}: {p}')
+        for t in Team.objects.filter(name=c):
+            print(f'- {c}: {t}')
 
 def add_page(cat, title, url, views=0):
     p = Page.objects.get_or_create(category=cat, title=title)[0]
@@ -100,6 +113,12 @@ def add_cat(name, views=0, likes=0):
     c.likes = likes
     c.save()
     return c
+
+def add_team(cat, country, likes=0):
+    t = Team.objects.get_or_create(name=cat, country=country)[0]
+    t.likes = likes
+    t.save()
+    return t
 
 #Start execustion here!
 if __name__ == '__main__':
