@@ -7,7 +7,7 @@ from rango.models import Category
 from rango.models import Page
 from rango.forms import CategoryForm
 from django.shortcuts import redirect
-from rango.forms import PageForm, UserForm, UserProfileForm
+from rango.forms import PageForm, UserForm, UserProfileForm, UserRegistrationForm
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -225,13 +225,13 @@ def visitor_cookie_handler(request):
 class RegisterProfileView(View):
     @method_decorator(login_required)
     def get(self, request):
-        form = UserProfileForm()
+        form = UserRegistrationForm()
         context_dict = {'form': form}
         return render(request, 'rango/profile_registration.html', context_dict)
     
     @method_decorator(login_required)
     def post(self, request):
-        form = UserProfileForm(request.POST, request.FILES)
+        form = UserRegistrationForm(request.POST, request.FILES)
 
         if form.is_valid():
             user_profile = form.save(commit=False)
@@ -303,6 +303,7 @@ class ProfileView(View):
         
         user_profile = UserProfile.objects.get_or_create(user=user)[0]
         form = UserProfileForm({'website': user_profile.website,
+                                'email': user_profile.email,
                                 'picture': user_profile.picture})
         
         return (user, user_profile, form)
@@ -422,7 +423,6 @@ def goto_url(request):
         return redirect(selected_page.url)
     
     return redirect(reverse('rango:index'))
-
 
 @login_required
 def team(request, category_name_slug):
