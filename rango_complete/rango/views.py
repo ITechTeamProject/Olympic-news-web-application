@@ -36,19 +36,9 @@ def index(request):
     #Render the response and send it back!
     return render(request, 'rango/index.html', context=context_dict)
 
-def team(request):
-    # return HttpResponse("Rango says hey there partner! <a href='/rango/about/'>About</a>")
-    category_list = Category.objects.order_by('-likes')[:5]
-    page_list = Page.objects.order_by('-views')[:5]
-
-    context_dict = {}
-
-    #request.session.set_test_cookie()
+def team_index(request):
 
     visitor_cookie_handler(request)
-    #context_dict['visits'] = request.session['visits']
-
-    #Render the response and send it back!
     return render(request, 'rango/team_index.html')
 
 def show_category(request, category_name_slug):
