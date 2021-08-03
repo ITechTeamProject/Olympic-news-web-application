@@ -7,28 +7,27 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="jumbotron p-4">
-    <div class="container">
-        <h1 class="jumbotron-heading">OLYMPIC NEWS</h1>
-    </div>
+<h1 class="jumbotron-heading">ABOUT US!</h1>
+<div class="text-center">
+    <img src="{% static 'images/company_banner.png' %}" alt="Picture of company_banner" />
+        <h6><br />
+                Our website tries our best to provide users best service about Olympic News. Our website 
+                provides a searching function to find relevant news about the 
+                events which users are interested in. When users login into our application, you could 
+                add pages for the up-to-date news of the Olympics and could also vote for their favorite 
+                teams and sports. In terms of the user profile, our website allows users to upload 
+                and share their pictures. ​
+        </h6><br />
 </div>
-<div class="container h-100">
-    <div>
-        Your Visits: {{ visits }}<br />
-    </div><br />
-    <div>
-        The Rango web application provides users an opportunity to access various pages from predefined categories. Related pages are classified according to their type and included in these categories. It enables users to find pages they are interested in in a clear and convenient way. <br />
-    </div><br />
-    <div>
-        This web application would provide a searching function to find relevant news about the events which users are interested in. When users login into our application, they could add pages for the up-to-date news of the Olympics and could also vote for their favorite teams and sports. In terms of the user profile, the web application allows users to upload and share their pictures. <br />
-    </div><br />
-    <div>
-        Team members:<br />
-        Shijun Zhang 2546526Z<br />
-        Zijian Chen 2547730C<br />
-        Boyang Han 2528314H<br />
-        Guicheng Zhang 2585109Z<br />
-    </div>
+<div class="text-center">
+    <h2 class="jumbotron-heading">OUR TEAM</h2>
+    <img src="{% static 'images/Guicheng Zhang.png' %}" alt="Picture of Guicheng Zhang" />
+    <img src="{% static 'images/Zijian Chen.png' %}" alt="Picture of Zijian Chen" />
+    <img src="{% static 'images/Shijun Zhang.png' %}" alt="Picture of Shijun Zhang" />
+    <img src="{% static 'images/Boyang Han.png' %}" alt="Picture of Boyang Han" /> 
 </div>
-
+<br />
+<!--<div>
+    You have visited our website:{{ visits }}<br />
+</div>-->
 {% endblock %}
