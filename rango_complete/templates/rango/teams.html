@@ -1,0 +1,31 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+   Participated Teams
+{% endblock %}
+
+{% block body_block %}
+    {% if sport %}
+        <div class="jumbotron p-4">
+            <div class="container">
+                <h1 class="jumbotron-heading">Participating Teams</h1>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if sport %}
+        <ul>
+            {% for sports in sport %}
+                <li>Participated teams in {{ sports.name }}
+                    <a href = "{% url 'rango:team' sports.slug %}">detail</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        
+    {% endif %}
+            
+  
+            
+{% endblock %} 

@@ -9,7 +9,7 @@
     {% if team %}
         <div class="jumbotron p-4">
             <div class="container">
-                <h1 class="jumbotron-heading">{{ category.slug }}</h1>
+                <h1 class="jumbotron-heading">{{ sport.name }}</h1>
 
         <!--<div>
             <strong id="like_count">{{ category.likes }}</strong> likes
@@ -27,11 +27,11 @@
     
     {% if team %}
     <ul>
-        {% for teams in team %}
+        {% for team in team %}
             <li>
-                <a >{{ teams.country }}</a>
+                <a >{{ team.country }}</a>
                 <div>
-                    <strong id="like_count">{{ teams.likes }}</strong> Voted
+                    <strong id="like_count">{{ team.likes }}</strong> Voted
                     
                     <button id="like_btn" data-categoryid="{{ team.id }}" class="btn btn-primary btn-sm" type="button">
                         <span data-feather="thumbs-up"></span>
