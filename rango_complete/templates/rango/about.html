@@ -9,22 +9,26 @@
 {% block body_block %}
 <div class="jumbotron p-4">
     <div class="container">
-        <h1 class="jumbotron-heading">Rango says...</h1>
-        <div>
-            <h2 class="h2">
-            here is the about page.
-            </h2>
-        <strong>{{ boldmessage }}</strong><br />
-        </div>
+        <h1 class="jumbotron-heading">OLYMPIC NEWS</h1>
     </div>
 </div>
-<div>
-    Your Visits: {{ visits }}<br />
+<div class="container h-100">
+    <div>
+        Your Visits: {{ visits }}<br />
+    </div><br />
+    <div>
+        The Rango web application provides users an opportunity to access various pages from predefined categories. Related pages are classified according to their type and included in these categories. It enables users to find pages they are interested in in a clear and convenient way. <br />
+    </div><br />
+    <div>
+        This web application would provide a searching function to find relevant news about the events which users are interested in. When users login into our application, they could add pages for the up-to-date news of the Olympics and could also vote for their favorite teams and sports. In terms of the user profile, the web application allows users to upload and share their pictures. <br />
+    </div><br />
+    <div>
+        Team members:<br />
+        Shijun Zhang 2546526Z<br />
+        Zijian Chen 2547730C<br />
+        Boyang Han 2528314H<br />
+        Guicheng Zhang 2585109Z<br />
+    </div>
 </div>
-<button class="btn btn-primary" onclick="alert('You clicked the button using inline Javascript.');">
-Click me - I run on Javascript!
-</button>
 
-    <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" /> 
-    <img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a Cat." /> 
 {% endblock %}
