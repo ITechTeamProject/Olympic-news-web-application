@@ -1,0 +1,49 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+   Team
+{% endblock %}
+
+{% block body_block %}
+    {% if team %}
+        <div class="jumbotron p-4">
+            <div class="container">
+                <h1 class="jumbotron-heading">{{ category.slug }}</h1>
+
+        <!--<div>
+            <strong id="like_count">{{ category.likes }}</strong> likes
+            {% if user.is_authenticated %}
+            <button id="like_btn" data-categoryid="{{ category.id }}" class="btn btn-primary btn-sm" type="button">
+                <span data-feather="thumbs-up"></span>
+                Like Category
+            </button>
+            {% endif %}
+        </div>-->
+            </div>
+        </div>
+    {% endif %}   
+    
+    
+    {% if team %}
+    <ul>
+        {% for teams in team %}
+            <li>
+                <a >{{ teams.country }}</a>
+                <div>
+                    <strong id="like_count">{{ teams.likes }}</strong> Voted
+                    
+                    <button id="like_btn" data-categoryid="{{ team.id }}" class="btn btn-primary btn-sm" type="button">
+                        <span data-feather="thumbs-up"></span>
+                        Vote for this team
+                    </button>
+                    
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    
+    {% endif %}
+    
+{% endblock %} 

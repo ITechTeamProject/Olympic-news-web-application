@@ -14,7 +14,7 @@
     <div class="jumbotron p-4">
         <div class="container">
             <h1 class="jumbotron-heading">{{ category.name }}</h1>
-
+            <a href="{% url 'rango:team' category.slug %}">Participating Team</a>
             <!--<div>
                 <strong id="like_count">{{ category.likes }}</strong> likes
                 {% if user.is_authenticated %}

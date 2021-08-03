@@ -26,6 +26,15 @@ def create_user_object():
         user.save()
         return user
 
+def create_ctaegory_object():
+    category = Category.objects.get_or_create(name='Basketball', views=100, likes=10)
+    return category
+
+"""def create_page_object():
+    category = create_ctaegory_object()
+    page = Page.objects.get_or_create(category=category.,title='xxx',url='https://xxxx.com',views=1)
+    return page
+"""
 def create_super_user_object():
     """
     Helper function to create a super user (admin) account.
@@ -103,7 +112,6 @@ class TestTopViewed(TestCase):
         response = self.client.get(reverse('rango:index'))
         #content = self.response.content.decode()
         expected_pages_order = list(Page.objects.order_by('-views')[:5])
-        print(response.context)
         self.assertTrue('pages' in response.context, f"{FAILURE_HEADER}Couldn't find a 'pages' variable in the index() view's context dictionary. Check your index.html {FAILURE_FOOTER}")
         self.assertEqual(type(response.context['pages']), QuerySet, f"{FAILURE_HEADER}The 'pages' variable in the index() view's context dictionary doesn't return a QuerySet as expected.{FAILURE_FOOTER}")
         self.assertEqual(expected_pages_order, list(response.context['pages']), f"{FAILURE_HEADER}The 'pages' context dictionary variable for the index() view didn't return the QuerySet we were expectecting: got {list(response.context['pages'])}, expected {expected_pages_order}. Did you apply the correct ordering to the filtered results?{FAILURE_FOOTER}")
@@ -247,9 +255,9 @@ class TestAdd(TestCase):
         self.assertEqual(response.status_code, 302, f"{FAILURE_HEADER}When attempting to add a category when not logged in, we weren't redirected when we should be. Check your add_category() implementation.{FAILURE_FOOTER}")
 
     """def test_good_add_page(self):
-        
+
         Tests to see if a page can be added when logged in.
-        
+
         populate()
         user_object = create_user_object()
         self.client.login(username='testuser', password='testabc123')
@@ -258,9 +266,8 @@ class TestAdd(TestCase):
         #self.assertEqual(response.status_code, 200, f"{FAILURE_HEADER}We weren't greeted with a HTTP status code when attempting to add a page when logged in. Check your add_page() view.{FAILURE_FOOTER}")
         
         content = response.content.decode()
-        print(content)
         self.assertTrue('Add News' in content, f"{FAILURE_HEADER}When adding a page (when logged in), we didn't see the expected page. Please check your add_page() view.{FAILURE_FOOTER}")
-    """
+"""
     def test_good_add_category(self):
         """
         Tests to see if a category can be added when logged in.
@@ -306,9 +313,3 @@ class TestAdd(TestCase):
         #content = response.content.decode()
         #self.assertTrue('visits:' not in content.lower(), f"{FAILURE_HEADER}The index.html template should not contain any logic for displaying the number of views. Did you complete the exercises?{FAILURE_FOOTER}")
         """
-
-class TestVote(TestCase):
-    pass
-
-class TestSearch(Testcase):
-    pass
