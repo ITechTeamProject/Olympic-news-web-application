@@ -303,6 +303,7 @@ class ProfileView(View):
         
         user_profile = UserProfile.objects.get_or_create(user=user)[0]
         form = UserProfileForm({'website': user_profile.website,
+                                'email': user_profile.email,
                                 'picture': user_profile.picture})
         
         return (user, user_profile, form)
@@ -423,7 +424,7 @@ def goto_url(request):
     
     return redirect(reverse('rango:index'))
 
-#@classmethod
+@login_required
 def team(request, category_name_slug):
     category_list = Category.objects.get(slug=category_name_slug)
     team_list = Team.objects.order_by('-likes')[:10]
