@@ -1,4 +1,5 @@
 from django.db.models import query
+from django.db.models.fields import SlugField
 from django.shortcuts import render
 from django.http import HttpResponse, response
 import requests
@@ -422,8 +423,16 @@ def goto_url(request):
     
     return redirect(reverse('rango:index'))
 
-def team(request):
-    return render(request, 'rango/team.html') 
+#@classmethod
+def team(request, category_name_slug):
+    category_list = Category.objects.get(slug=category_name_slug)
+    team_list = Team.objects.order_by('-likes')[:10]
+
+    context_dict = {}
+    #context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
+    context_dict['sport'] = category_list
+    context_dict['team'] = team_list
+    return render(request, 'rango/team.html', context=context_dict) 
 
 class VoteTeamsView(View):
     @method_decorator(login_required)

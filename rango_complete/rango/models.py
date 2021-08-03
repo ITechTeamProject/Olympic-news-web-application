@@ -47,4 +47,4 @@ class Team(models.Model):
     id = models.CharField(max_length=128, blank=True, primary_key=True)
     
     def __str__(self):
-        return self.id
+        return self.country
