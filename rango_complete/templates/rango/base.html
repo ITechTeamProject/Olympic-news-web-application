@@ -59,25 +59,60 @@
         
         <div class="container-fluid">
             <div class="row">
-                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                    <div class="w-75 ml-3">
-                        <input type="search" id="search-input" class="form-control ds-input" placeholder="Search..." />
-                    </div>
-
-                    <div class="sidebar-sticky" id="categories-listing">
-                    {% block sidebar_block %}
-                        {% get_category_list category %}
-                    {% endblock %}
-                    </div>
-                </nav>
-                
-                <main role="main" class="col-md-9  ml-sm-auto col-lg-10 px-4">		
+                <main role="main" class="col-md-9  ml-sm-auto col-lg-10 px-4">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div class="w-75 ml-3">
+                            <input type="search" id="search-input" class="form-control ds-input" placeholder="Search..." />
+                        </div>
+    
+                        <div class="sidebar-sticky" id="categories-listing">
+                        {% block sidebar_block %}
+                            {% get_category_list category %}
+                        {% endblock %}
+                        </div>
+                    </nav>		
                     {% block body_block %}{% endblock %}
-                    
                     <!-- FOOTER -->
-                    <footer>
+                    <footer class="footer">
+                        <!-- Footer Links -->
                         <p class="float-right"><a href="#">Back to top</a></p>
-                        <p>&copy; 2021 OLYMPIC NEWS &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+                        <div class="container-fluid text-center text-md-left">
+                            <!-- Grid row -->
+                            <div class="row">
+                                <!-- Grid column -->
+                                <div class="col-md-4 mt-md-0 mt-3">
+                                    <!-- Content -->
+                                    <h5 class="text-uppercase">OLYMPIC NEWS</h5>
+                                    <p>&copy; 2021 &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+                                </div>
+                                <!-- Grid column -->
+                                <hr class="clearfix w-100 d-md-none pb-3">
+                                <!-- Grid column -->
+                                <div class="col-md-3 mb-md-0 mb-3">
+                                    <!-- Links -->
+                                    <h5 class="text-uppercase">Olympic Games</h5>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#!">Tokyo 2020</a></li>
+                                        <li><a href="#!">All Olympic Games</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2 mb-md-0 mb-3">
+                                    <!-- Links -->
+                                    <h5 class="text-uppercase">News</h5>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#!">Games</a></li>
+                                        <li><a href="#!">Teams</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2 mb-md-0 mb-3">
+                                    <!-- Links -->
+                                    <h5 class="text-uppercase">Contact Us</h5>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#!">Email</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </footer>
                 </main>
             </div>
