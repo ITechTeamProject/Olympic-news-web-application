@@ -35,6 +35,7 @@
                     {% if user.is_authenticated %}
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:index' %}">Home</a></li>
+                        <li class="nav-item "><a style="color:ivory;" class="nav-link" href="{% url 'rango:teams' %}">Teams</a></li>
                         <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:add_category' %}">Add Sport</a></li>
                         <li class="nav-item "><a style="color:ivory;" class="nav-link" href="{% url 'rango:about' %}">About</a></li>
                     </ul>    
@@ -79,18 +80,14 @@
                         <!-- Footer Links -->
                         <div style="color:ivory;" class="container-fluid text-center text-md-left">
                             <!-- Grid row -->
+
                             <div class="row">
-                                <!-- Grid column -->
                                 <div class="col-md-4 mt-md-0 mt-3">
-                                    <!-- Content -->
                                     <h5 class="text-uppercase">OLYMPIC NEWS</h5>
                                     <p>&copy; 2021 IT Production Workshop</p>
                                 </div>
-                                <!-- Grid column -->
                                 <hr class="clearfix w-100 d-md-none pb-3">
-                                <!-- Grid column -->
                                 <div class="col-md-3 mb-md-0 mb-3">
-                                    <!-- Links -->
                                     <h5 class="text-uppercase">Olympic Games</h5>
                                     <ul class="list-unstyled">
                                         <li><a style="color:ivory;" href="#!">Tokyo 2020</a></li>
@@ -98,7 +95,6 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-2 mb-md-0 mb-3">
-                                    <!-- Links -->
                                     <h5 class="text-uppercase">News</h5>
                                     <ul class="list-unstyled">
                                         <li><a style="color:ivory;" href="#!">Games</a></li>
@@ -106,7 +102,6 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-2 mb-md-0 mb-3">
-                                    <!-- Links -->
                                     <h5 class="text-uppercase">Contact Us</h5>
                                     <ul class="list-unstyled">
                                         <li><a style="color:ivory;" href="#!">Email</a></li>

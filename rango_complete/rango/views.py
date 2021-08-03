@@ -25,7 +25,6 @@ def index(request):
     page_list = Page.objects.order_by('-views')[:5]
 
     context_dict = {}
-    context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['categories'] = category_list
     context_dict['pages'] = page_list
 
@@ -36,6 +35,11 @@ def index(request):
 
     #Render the response and send it back!
     return render(request, 'rango/index.html', context=context_dict)
+
+def team_index(request):
+
+    visitor_cookie_handler(request)
+    return render(request, 'rango/team_index.html')
 
 def show_category(request, category_name_slug):
     context_dict = {}
@@ -427,13 +431,24 @@ def goto_url(request):
 @login_required
 def team(request, category_name_slug):
     category_list = Category.objects.get(slug=category_name_slug)
-    team_list = Team.objects.order_by('-likes')[:10]
+    team_list = Team.objects.filter(name = category_list).order_by('-likes')#[:10]
 
     context_dict = {}
     #context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['sport'] = category_list
     context_dict['team'] = team_list
     return render(request, 'rango/team.html', context=context_dict) 
+
+@login_required
+def teamView(request):
+    sport_list = Category.objects.order_by('-views')
+
+
+    context_dict = {}
+  
+    context_dict['sport'] = sport_list
+   
+    return render(request, 'rango/teams.html', context=context_dict)
 
 class VoteTeamsView(View):
     @method_decorator(login_required)
