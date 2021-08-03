@@ -7,24 +7,27 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="jumbotron p-4">
-    <div class="container">
-        <h1 class="jumbotron-heading">Rango says...</h1>
-        <div>
-            <h2 class="h2">
-            here is the about page.
-            </h2>
-        <strong>{{ boldmessage }}</strong><br />
-        </div>
-    </div>
+<h1 class="jumbotron-heading">ABOUT US!</h1>
+<div class="text-center">
+    <img src="{% static 'images/company_banner.png' %}" alt="Picture of company_banner" />
+        <h6><br />
+                Our website tries our best to provide users best service about Olympic News. Our website 
+                provides a searching function to find relevant news about the 
+                events which users are interested in. When users login into our application, you could 
+                add pages for the up-to-date news of the Olympics and could also vote for their favorite 
+                teams and sports. In terms of the user profile, our website allows users to upload 
+                and share their pictures. ​
+        </h6><br />
 </div>
-<div>
-    Your Visits: {{ visits }}<br />
+<div class="text-center">
+    <h2 class="jumbotron-heading">OUR TEAM</h2>
+    <img src="{% static 'images/Guicheng Zhang.png' %}" alt="Picture of Guicheng Zhang" />
+    <img src="{% static 'images/Zijian Chen.png' %}" alt="Picture of Zijian Chen" />
+    <img src="{% static 'images/Shijun Zhang.png' %}" alt="Picture of Shijun Zhang" />
+    <img src="{% static 'images/Boyang Han.png' %}" alt="Picture of Boyang Han" /> 
 </div>
-<button class="btn btn-primary" onclick="alert('You clicked the button using inline Javascript.');">
-Click me - I run on Javascript!
-</button>
-
-    <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" /> 
-    <img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a Cat." /> 
+<br />
+<!--<div>
+    You have visited our website:{{ visits }}<br />
+</div>-->
 {% endblock %}
