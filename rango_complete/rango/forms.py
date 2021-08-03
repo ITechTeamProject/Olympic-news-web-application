@@ -4,7 +4,7 @@ from rango.models import Page, Category, UserProfile
 from django.contrib.auth.models import User
 
 class CategoryForm(forms.ModelForm):
-    name = forms.CharField(max_length=Category.name_max_length, help_text="Please enter the category name.")
+    name = forms.CharField(max_length=Category.name_max_length, help_text="Please enter the sport name.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
@@ -16,8 +16,8 @@ class CategoryForm(forms.ModelForm):
         fields = ('name',)
 
 class PageForm(forms.ModelForm):
-    title = forms.CharField(max_length=Page.title_max_length, help_text="Please enter the title of the page.")
-    url = forms.URLField(max_length=200, help_text="Please enter the URL of the page.")
+    title = forms.CharField(max_length=Page.title_max_length, help_text="Please enter the title of the news.")
+    url = forms.URLField(max_length=200, help_text="Please enter the URL of the news.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:
@@ -35,6 +35,7 @@ class PageForm(forms.ModelForm):
             cleaned_data['url'] = url
 
         return cleaned_data
+        
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
 

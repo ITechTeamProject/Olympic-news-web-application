@@ -15,7 +15,8 @@ from rango.search import run_query
 from django.views import View
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
-from rango.models import UserProfile
+from rango.models import UserProfile,Team
+
 
 def index(request):
     # return HttpResponse("Rango says hey there partner! <a href='/rango/about/'>About</a>")
@@ -423,3 +424,17 @@ def goto_url(request):
 
 def team(request):
     return render(request, 'rango/team.html') 
+
+class VoteTeamsView(View):
+    @method_decorator(login_required)
+    def get(self, request):
+        team_id = request.GET['team_id']
+        try:
+            team = Team.objects.get(id=int(team_id))
+        except Team.DoesNotExist:
+            return HttpResponse(-1)
+        except ValueError:
+            return HttpResponse(-1)
+        team.likes = team.likes + 1
+        team.save()
+        return HttpResponse(team.likes)
