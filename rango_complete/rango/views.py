@@ -25,7 +25,6 @@ def index(request):
     page_list = Page.objects.order_by('-views')[:5]
 
     context_dict = {}
-    context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['categories'] = category_list
     context_dict['pages'] = page_list
 
@@ -36,6 +35,11 @@ def index(request):
 
     #Render the response and send it back!
     return render(request, 'rango/index.html', context=context_dict)
+
+def team_index(request):
+
+    visitor_cookie_handler(request)
+    return render(request, 'rango/team_index.html')
 
 def show_category(request, category_name_slug):
     context_dict = {}

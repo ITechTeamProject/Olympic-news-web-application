@@ -7,24 +7,33 @@
 {% endblock %}
 
 {% block body_block %}
+<div class="jumbotron p-4">
+  <div class="container">
+      <h1 class="jumbotron-heading">Log in to your Olympic News Account</h1>
+  </div>
+</div>
+
 <body class="text-center">
-    <main class="form-signin">
+    <main class="form-signin h-100">
       <form class="form-signin" role="form" method="post" action=".">
-        {% csrf_token %}
-        <img class="mb-4" src="{% static 'images/favicon.ico' %}" alt width="72" height="57">
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-    <div class="w-50 h-80 mx-auto">
-        <label for="inputUsername" class="sr-only">Username</label><br />
-        <input style="height: 45px;" type="text" name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input style="height: 45px;" type="password" name="password" id="id_password" class="form-control" placeholder="Password" required><br />
-    </div>
-        <button style="height: 45px;" class="w-50 btn btn-lg btn-outline-danger" type="submit">Sign in</button>
+        <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet">
+        <div class="container">
+            <form class="form-signin" role="form" method="post" action=".">
+                {% csrf_token %}
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
+        
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+                
+                <button class="w-50 btn btn-lg btn-outline-danger" type="submit" value="Submit">LOG IN</button>
+            </form>
+        </div>
       </form>
     </main>
 </body>
 <p>
-    Not registered?
-    <a style="color: rgb(221, 75, 75);" class="alert-link" href="{% url 'registration_register' %}">Register here!</a>
+  Not registered?
+  <a style="color: rgb(221, 75, 75);" class="alert-link" href="{% url 'registration_register' %}">Register here!</a>
 </p>
 {% endblock %}
