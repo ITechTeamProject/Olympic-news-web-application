@@ -23,6 +23,6 @@ urlpatterns = [
     path('search_add_page/', views.SearchAddPageView.as_view(), name='search_add_page'),
     path('goto/', views.goto_url, name='goto'),
     path('vote_teams/', views.VoteTeamsView.as_view(), name='vote_teams'),
-    
+    path('teams/', views.teamView, name='teams')
 ]
 
