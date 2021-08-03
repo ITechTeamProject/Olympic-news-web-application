@@ -33,10 +33,18 @@ class Page(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-
+    email = models.EmailField(blank=True)
     website = models.URLField(blank=True)
     picture = models.ImageField(upload_to='profile_images', blank=True)
 
     def __str__(self):
         return self.user.username
 
+class Team(models.Model):
+    likes = models.IntegerField(default=0)
+    name = models.ForeignKey(Category, on_delete=models.CASCADE)
+    country = models.CharField(max_length=128, blank=True, null=True)
+    id = models.CharField(max_length=128, blank=True, primary_key=True)
+    
+    def __str__(self):
+        return self.country
