@@ -8,7 +8,6 @@
 
 {% block body_block %}
 <body class="text-center">
-    
     <main class="form-signin">
       <form class="form-signin" role="form" method="post" action=".">
         {% csrf_token %}
@@ -23,24 +22,5 @@
         <button class="w-50 btn btn-lg btn-outline-danger" type="submit">Sign in</button>
       </form>
     </main>
-
-<<<<<<< HEAD
-<link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet">
-<div class="container">
-    <form class="form-signin" role="form" method="post" action=".">
-        {% csrf_token %}
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
-
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
-        
-        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Sign in</button>
-    </form>
-</div>
-=======
-</body>
-<br />
->>>>>>> zsj
 
 {% endblock %}
