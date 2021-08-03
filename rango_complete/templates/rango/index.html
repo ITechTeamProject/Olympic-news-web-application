@@ -16,9 +16,9 @@
 </div>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
+<div class="container text-center">
+    <div class="row text-center">
+        <!--<div class="col-md-6">
             <div class="card mb-6">
                 <div class="card-body">
                     <h2>Most Viewed Sports</h2>
@@ -37,19 +37,18 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div>-->
 
-        <div class="col-md-6">
-            <div class="card mb-6">
-                <div class="card-body">
-                    <h2>Most Viewed News</h2>
+        <div class="container">
+            <a style="color:rgb(211, 124, 11)"><h2>Most Viewed News</h2></a>
+                <div class="card-body mb-8">
                     <p class="card-text">
 
                     {% if pages %}
                     <ul class="list-group">
                     {% for page in pages %}
                         <li class="list-group-item">
-                            <a href="{{ page.url }}">{{ page.title }}</a>
+                            <a style="color:rgb(204, 167, 120)" href="{{ page.url }}"><strong>{{ page.title }}</strong></a>
                         </li>
                     {% endfor %}
                     </ul>
@@ -58,8 +57,8 @@
                     {% endif %}
                     </p>
                 </div>
-            </div>
         </div>
+
     </div>
 </div>
 

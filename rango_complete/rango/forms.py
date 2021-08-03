@@ -47,8 +47,3 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ('website', 'email','picture')
-
-class UserRegistrationForm(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ('website','picture')
