@@ -15,6 +15,7 @@
 
 <div class="container">
     <div class="row">
+        <!-- submit form about the required information about create profile, it would point to register_profile -->
         <form method="post" action="{% url 'rango:register_profile' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}

@@ -18,7 +18,7 @@
         <ul>
             {% for sports in sport %}
                 <li>Participated teams in {{ sports.name }}
-                    <a href = "{% url 'rango:team' sports.slug %}">detail</a>
+                    <a href = "{% url 'rango:team' sports.slug %}">detail</a> <!-- href to the page of participated teams in this sport-->
                 </li>
             {% endfor %}
         </ul>
