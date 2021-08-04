@@ -21,16 +21,16 @@
             {% for teams in team %}
             <li class="mt-5">
                 <div class="row">
-                    <div class="col-sm">
+                    <div class="col-md-4">
                         <!--show the participated teams in this sports order by the vote number -->
                         <a >{{ teams.country }}</a>
                         ( <strong id="like_count">{{ teams.likes }}</strong> Voted )
                     </div>
-                    <div class="col-sm text-center">
+                    <div class="col-md-5 text-center">
                         <!-- add buttons to vote for the team, it would react with ajax -->
-                        <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-sm" style="background-color:rgb(211, 124, 11);">
+                        <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-sm" style="background-color:rgb(204, 167, 120);color:white;">
                             <span data-feather="flag"></span>
-                            Vote for this team
+                            Vote
                         </button>
                     </div>
                 </div>
