@@ -2,6 +2,7 @@
 
 {% load staticfiles %}
 
+<!-- this is the user profile page -->
 {% block title_block %}
     Profile for {{ selected_user.username }}
 {% endblock %}
@@ -30,9 +31,11 @@
             <form method="post" action="." enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
+                <!-- update profile picture -->
                 <input type="submit" value="Update" />
             </form>
             {% else %}
+            <!-- display user webiste -->
             <strong>Website:</strong>
             <a href="{{ user_profile.website }}">{{ user_profile.website }}</a>
             {% endif %}

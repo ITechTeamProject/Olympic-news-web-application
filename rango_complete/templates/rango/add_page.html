@@ -2,17 +2,20 @@
 
 {% load staticfiles %}
 
+<!-- this page is for adding a piece of news in a specific category-->
 {% block title_block %}
     Add a Page
 {% endblock %}
 
 {% block body_block %}
+<!-- the header part(displaying which category you will add news at) -->
 <div class="jumbotron p-4">
     <div class="container">
         <h1 class="jumbotron-heading">Add News to {{ category.name }}</h1>
     </div>
 </div>
 
+<!-- helper text and entries for adding news -->
 <div class="text-center p-5">
     <form role="form" id="page_form" method="post" action="{% url 'rango:add_page' category.slug %}">
     {% csrf_token %}
@@ -29,5 +32,4 @@
         </div>
     </form>
 </div> 
-    
 {% endblock %}

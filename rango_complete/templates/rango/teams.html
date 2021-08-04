@@ -1,6 +1,7 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 
+<!-- this page is for displaying participated teams(redirected form the navigaiton bar) -->
 {% block title_block %}
    Participated Teams
 {% endblock %}
@@ -19,7 +20,8 @@
         <ul style="font-size: 30px">
             {% for sports in sport %}
                 <li class="mt-5">Participated teams in {{ sports.name }}
-                    <a href = "{% url 'rango:team' sports.slug %}" style="color:rgb(200, 25, 25)">detail</a> <!-- href to the page of participated teams in this sport-->
+                    <!-- href to the page of participated teams in this sport-->
+                    <a href = "{% url 'rango:team' sports.slug %}" style="color:rgb(200, 25, 25)">detail</a>
                 </li>
             {% endfor %}
         </ul>
@@ -27,6 +29,5 @@
         <li class="nav-item">There are no sports present.</li>
         {% endif %}
     </form>
-    
 </div>
 {% endblock %} 

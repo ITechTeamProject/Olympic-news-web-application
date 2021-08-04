@@ -1,6 +1,7 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 
+<!-- this page is for voting for a team -->
 {% block title_block %}
    Team
 {% endblock %}
@@ -13,17 +14,20 @@
 </div>
 
 <div class="container">
+    <!--using form to make the vote result could update timely-->
     <form>
         <ul>
         {% if team %}
             {% for teams in team %}
             <li class="mt-5">
                 <div class="row">
-                    <div class="col-sm"> <!--show the participated teams in this sports order by the vote number -->
+                    <div class="col-sm">
+                        <!--show the participated teams in this sports order by the vote number -->
                         <a >{{ teams.country }}</a>
                         ( <strong id="like_count">{{ teams.likes }}</strong> Voted )
                     </div>
                     <div class="col-sm text-center">
+                        <!-- add buttons to vote for the team, it would react with ajax -->
                         <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-primary btn-sm">
                             <span data-feather="thumbs-up"></span>
                             Vote for this team

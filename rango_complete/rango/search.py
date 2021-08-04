@@ -40,16 +40,3 @@ def run_query(search_terms):
             'summary': result['snippet']})
 
     return results
-
-# def main():
-#     search_terms = input("Enter query:")
-#     results = run_query(search_terms)
-
-#     for result in results:
-#         print(result['title'])
-#         print(result['link'])
-#         print(result['summary'])
-#         print('======')
-
-# if __name__ == '__main__':
-#     main()
