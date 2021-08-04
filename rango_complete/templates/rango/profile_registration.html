@@ -2,6 +2,7 @@
 
 {% load staticfiles %}
 
+<!-- this page is for registration -->
 {% block title_block %}
     Register - Step 2
 {% endblock %}
@@ -15,7 +16,7 @@
 
 <div class="container">
     <div class="row">
-        <!-- submit form about the required information about create profile, it would point to register_profile -->
+        <!-- submit form of the required information to create user profile, it would point to register_profile -->
         <form method="post" action="{% url 'rango:register_profile' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}

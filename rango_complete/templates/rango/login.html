@@ -1,7 +1,7 @@
 {% extends 'rango/base.html' %}
 
 {% load staticfiles %}
-
+<!-- this is the login page -->
 {% block title_block %}
     Login
 {% endblock %}
@@ -12,6 +12,7 @@
         <h1 class="jumbotron-heading">Login to Rango</h1>
     </div>
 </div>   
+
 <!-- submit the details about username and password refer to the login form -->
 <form id="login_form" method="post" action="{% url 'rango:login' %}">
     {% csrf_token %}
