@@ -1,12 +1,14 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 
+<!-- this page is for displaying participated teams(redirected form the navigaiton bar) -->
 {% block title_block %}
    Participated Teams
 {% endblock %}
 
 {% block body_block %}
     {% if sport %}
+    <!-- display partcipated teams in the specific sport -->
         <div class="jumbotron p-4">
             <div class="container">
                 <h1 class="jumbotron-heading">Participating Teams</h1>
@@ -18,7 +20,8 @@
         <ul>
             {% for sports in sport %}
                 <li>Participated teams in {{ sports.name }}
-                    <a href = "{% url 'rango:team' sports.slug %}">detail</a> <!-- href to the page of participated teams in this sport-->
+                    <!-- href to the detail page of participated teams in this sport-->
+                    <a href = "{% url 'rango:team' sports.slug %}">detail</a> 
                 </li>
             {% endfor %}
         </ul>

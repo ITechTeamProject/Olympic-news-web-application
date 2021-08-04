@@ -2,23 +2,27 @@
 
 {% load staticfiles %}
 
+<!-- this is the about page -->
 {% block title_block %}
     About Rango
 {% endblock %}
 
 {% block body_block %}
 
+<!-- the header part -->
 <div class="text-center">
     <div class="container">
         <h1 class="jumbotron-heading">ABOUT US</h1>
     </div>
 </div>
 
+<!-- the banner & describing part of our team -->
 <div class="text-center">
     <img src="{% static 'images/company_banner.png' %}" alt="Picture of company_banner" style="width: 100%; height: 100%"/>
     <h6>Our website tries our best to provide users best service about Olympic News. Our website provides a searching function to find relevant news about the events which users are interested in. When users login into our application, you could add pages for the up-to-date news of the Olympics and could also vote for their favorite teams and sports. In terms of the user profile, our website allows users to upload and share their pictures. ​</h6>
 </div><br />
 <div class="container-fluid text-center text-md-left">
+    <!-- describing team members -->
     <div class="text-center">
         <h3 class="text-uppercase">TEAM MEMBERS</h3>
     </div>
@@ -42,7 +46,4 @@
     </div>
 </div>
 <br />
-<!--<div>
-    You have visited our website:{{ visits }}<br />
-</div>-->
 {% endblock %}

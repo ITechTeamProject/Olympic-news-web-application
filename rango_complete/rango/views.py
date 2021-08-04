@@ -397,23 +397,6 @@ class CategorySuggestionView(View):
         return render(request, 'rango/categories.html', {'categories': category_list})
 
 
-# class LikeCategoryView(View):
-#     @method_decorator(login_required)
-#     def get(self, request):
-#         category_id = request.GET['category_id']
-
-#         try:
-#             category = Category.objects.get(id=int(category_id))
-#         except Category.DoesNotExist:
-#             return HttpResponse(-1)
-#         except ValueError:
-#             return HttpResponse(-1)
-        
-#         category.likes = category.likes + 1
-#         category.save()
-
-#         return HttpResponse(category.likes)
-
 class SearchAddPageView(View):
     """
     Search a sport and add a piece of news in it
@@ -457,6 +440,7 @@ def goto_url(request):
 @login_required
 def team(request, category_name_slug):
     """
+    Show the all participated teams of one sport in rango/team/<sport_slug>
     """
     category_list = Category.objects.get(slug=category_name_slug)
     team_list = Team.objects.filter(name = category_list).order_by('-likes')#[:10]
@@ -469,6 +453,7 @@ def team(request, category_name_slug):
 @login_required
 def teamView(request):
     """
+    Showing all types of sports, and relate to teams participated in each type of sport
     """
     sport_list = Category.objects.order_by('-views')
 
@@ -479,7 +464,7 @@ def teamView(request):
 
 class VoteTeamsView(View):
     """
-    Vote for a team
+    Vote for the team, and show how many votes for this team
     """
     @method_decorator(login_required)
     def get(self, request):

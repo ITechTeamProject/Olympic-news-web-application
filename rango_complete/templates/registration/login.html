@@ -2,17 +2,20 @@
 
 {% load staticfiles %}
 
+<!-- this is the login page(using django-registration-redux) -->
 {% block title_block %}
     Login
 {% endblock %}
 
 {% block body_block %}
+<!-- the header part -->
 <div class="text-center p-2">
   <div class="container">
       <h1 class="jumbotron-heading">Log in to your Olympic News Account</h1>
   </div>
 </div>
 
+<!-- using placeholder to get username and password for loging in -->
 <div class="text-center p-5">
   <main class="form-signin">
     <form class="form-signin" role="form" method="post" action=".">
@@ -20,12 +23,15 @@
       <div class="container">
         <form class="form-signin" role="form" method="post" action=".">
             {% csrf_token %}
+            <!-- get username -->
             <label for="inputUsername" class="sr-only">Username</label>
             <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
-    
+
+            <!--get password -->
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
             <button class="btn btn-md btn-block btn-outline-danger" type="submit" value="Submit">LOG IN</button>
+            <!-- checkbox if users want to remember their username and password -->
             <div class="checkbox mb-3">
               <label>
                 <input type="checkbox" value="remember-me">
@@ -37,6 +43,7 @@
     </form>
   </main>
   <p class="text-center">
+    <!-- if not registered, redirecting to the register page -->
     Not registered?
     <a style="color: rgb(221, 75, 75);" class="alert-link" href="{% url 'registration_register' %}">Register here!</a>
   </p>

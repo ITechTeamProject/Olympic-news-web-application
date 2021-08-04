@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load rango_template_tags %}
+<!-- this is the homepage template-->
 <html lang="en">
+    <!-- setting icon, title of our homepage -->
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,11 +22,13 @@
     <link href="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.css" rel="stylesheet">
     </head>
     
+    <!-- setting navigation bar -->
     <style type="text/css">
     .navbar{background-color: rgb(175, 30, 59);}
     </style>
     <body>
         <header> 
+            <!-- navigation bar to homepage-->
             <nav class="navbar navbar-expand-md navbar-dark fixed-top p-0">
                 <a style="color:ivory;" class="navbar-brand p-2" href="{% url 'rango:index' %}">Olympic News</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,6 +37,7 @@
                 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     {% if user.is_authenticated %}
+                    <!-- navigation bar: for a logged in user -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:index' %}">Home</a></li>
                         <li class="nav-item "><a style="color:ivory;" class="nav-link" href="{% url 'rango:teams' %}">Teams</a></li>
@@ -45,9 +50,9 @@
                         <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:profile' user.username %}">Profile</a></li>
                     </ul>
                     {% else %}
+                    <!-- navigation bar: for a visitor -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:index' %}">Home</a></li>
-                        <!--<li class="nav-item "><a class="nav-link" href="{% url 'rango:about' %}">Teams</a></li>-->
                         <li class="nav-item "><a style="color:ivory;" class="nav-link" href="{% url 'rango:about' %}">About</a></li>
                     </ul>    
                     <ul class="navbar-nav ml-md-auto">
@@ -60,6 +65,7 @@
             </nav>
         </header>
         
+        <!-- search bar -->
         <div class="container-fluid">
             <div class="row">
                 <main role="main" class="col-md-9  ml-sm-auto col-lg-10 px-4">
@@ -75,12 +81,12 @@
                         </div>
                     </nav>		
                     {% block body_block %}{% endblock %}
-                    <!-- FOOTER -->
-                    <footer style=" width: 100%; height: auto; background-color:rgb(175, 30, 59)" class="bd-footer py-5 mt-5 mx-auto">
-                        <!-- Footer Links -->
-                        <div style="color:ivory;" class="container-fluid text-center text-md-left">
-                            <!-- Grid row -->
 
+                    <!-- setting footer -->
+                    <footer style=" width: 100%; height: auto; background-color:rgb(175, 30, 59)" class="bd-footer py-5 mt-5 mx-auto">
+                        <!-- setting links at the footer -->
+                        <div style="color:ivory;" class="container-fluid text-center text-md-left">
+                            <!-- grid row -->
                             <div class="row">
                                 <div class="col-md-4 mt-md-0 mt-3">
                                     <h5 class="text-uppercase">OLYMPIC NEWS</h5>
