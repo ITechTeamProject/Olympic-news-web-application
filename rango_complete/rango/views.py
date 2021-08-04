@@ -112,19 +112,19 @@ def add_page(request, category_name_slug):
     context_dict = {'form': form, 'category': category}
     return render(request, 'rango/add_page.html', context=context_dict)
 
-def about(request):
-    #return HttpResponse("Rango says here is the about page. <a href='/rango/'>Index</a>")
-    print(request.method)
-    print(request.user)
+# def about(request):
+#     #return HttpResponse("Rango says here is the about page. <a href='/rango/'>Index</a>")
+#     print(request.method)
+#     print(request.user)
 
-    # if request.session.test_cookie_worked():
-    #     print("TEST COOKIE WORKED!")
-    #     request.session.delete_test_cookie()
-    context_dict = {}
-    context_dict['boldmessage'] = "This tutorial has been put together by Shijun Zhang."
-    visitor_cookie_handler(request)
-    context_dict['visits'] = request.session['visits']
-    return render(request, 'rango/about.html', context=context_dict)
+#     # if request.session.test_cookie_worked():
+#     #     print("TEST COOKIE WORKED!")
+#     #     request.session.delete_test_cookie()
+#     context_dict = {}
+#     context_dict['boldmessage'] = "This tutorial has been put together by Shijun Zhang."
+#     visitor_cookie_handler(request)
+#     context_dict['visits'] = request.session['visits']
+#     return render(request, 'rango/about.html', context=context_dict)
 
 # def register(request):
 #     registered = False

@@ -7,30 +7,27 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="jumbotron p-4">
+<div class="text-center">
     <div class="container">
-        <h1 class="jumbotron-heading">Add a News to {{ category.name }}</h1>
+        <h1 class="jumbotron-heading">Add News to {{ category.name }}</h1>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <form role="form" id="page_form" method="post" action="{% url 'rango:add_page' category.slug %}">
-        {% csrf_token %}
-        {% for hidden in form.hidden_fields %}
-            {{ hidden }}
-        {% endfor %}
-        {% for field in form.visible_fields %}
-            {{ field.errors }}
-            {{ field.help_text }}<br />
-            {{ field }}<br />
-            <div class="p-2"></div>
-        {% endfor %}
-            <button class="btn btn-primary" type="submit" name="submit">
-                Add News
-            </button>
-            <div class="p-5"></div>
-        </form>
-    </div>
+
+<div class="text-center p-5 h-100">
+    <form role="form" id="page_form" method="post" action="{% url 'rango:add_page' category.slug %}">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        <p style="font-size:20px;">{{ field.help_text }}</p>
+        <p style="font-size:20px;">{{ field }}</p>
+    {% endfor %}
+        <div class="p-5">
+            <button class="btn btn-lg btn-outline-danger" type="submit" name="submit" style="width: auto;">Add News</button>
+        </div>
+    </form>
 </div> 
     
 {% endblock %}
