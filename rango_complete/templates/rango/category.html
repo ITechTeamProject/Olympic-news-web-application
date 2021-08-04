@@ -54,7 +54,7 @@
     {% else %}
     The specified sport does not exist.
     {% endif %}
-    <div>
+    <div class="container h-100">
         {% if user.is_authenticated %}
         <form class="form-inline" id="user-form" method="post" action="{% url 'rango:show_category' category.slug %}">
             {% csrf_token %}
