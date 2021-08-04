@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 from django.forms import fields as django_fields
 from django.db.models.query import QuerySet
 
-FAILURE_HEADER = f"{os.linesep}{os.linesep}{os.linesep}================{os.linesep}TwD TEST FAILURE =({os.linesep}================{os.linesep}"
+FAILURE_HEADER = f"{os.linesep}{os.linesep}{os.linesep}================{os.linesep}Olympic News Web App Test Failure =({os.linesep}================{os.linesep}"
 FAILURE_FOOTER = f"{os.linesep}"
 
 def create_user_object():
