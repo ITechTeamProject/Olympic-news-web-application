@@ -7,7 +7,7 @@ from rango.models import Category
 from rango.models import Page
 from rango.forms import CategoryForm
 from django.shortcuts import redirect
-from rango.forms import PageForm, UserForm, UserProfileForm, UserRegistrationForm
+from rango.forms import PageForm, UserForm, UserProfileForm
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -229,13 +229,13 @@ def visitor_cookie_handler(request):
 class RegisterProfileView(View):
     @method_decorator(login_required)
     def get(self, request):
-        form = UserRegistrationForm()
+        form = UserProfileForm()
         context_dict = {'form': form}
         return render(request, 'rango/profile_registration.html', context_dict)
     
     @method_decorator(login_required)
     def post(self, request):
-        form = UserRegistrationForm(request.POST, request.FILES)
+        form = UserProfileForm(request.POST, request.FILES)
 
         if form.is_valid():
             user_profile = form.save(commit=False)
@@ -431,13 +431,24 @@ def goto_url(request):
 @login_required
 def team(request, category_name_slug):
     category_list = Category.objects.get(slug=category_name_slug)
-    team_list = Team.objects.order_by('-likes')[:10]
+    team_list = Team.objects.filter(name = category_list).order_by('-likes')#[:10]
 
     context_dict = {}
     #context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['sport'] = category_list
     context_dict['team'] = team_list
     return render(request, 'rango/team.html', context=context_dict) 
+
+@login_required
+def teamView(request):
+    sport_list = Category.objects.order_by('-views')
+
+
+    context_dict = {}
+  
+    context_dict['sport'] = sport_list
+   
+    return render(request, 'rango/teams.html', context=context_dict)
 
 class VoteTeamsView(View):
     @method_decorator(login_required)

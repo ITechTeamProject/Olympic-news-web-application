@@ -8,7 +8,7 @@
 {% block body_block %}
 <div class="text-center p-2">
     <div class="container">
-        <h1 class="jumbotron-heading">Sport: {{ category.name }}</h1>
+        <h1 class="jumbotron-heading">{{ sport.name }}</h1>
     </div>
 </div>
 
@@ -17,9 +17,9 @@
     {% if team %}
         {% for teams in team %}
             <li>
-                <a >{{ teams.country }}</a>
+                <a >{{ team.country }}</a>
                 <div>
-                    <strong id="like_count">{{ teams.likes }}</strong> Voted
+                    <strong id="like_count">{{ team.likes }}</strong> Voted
                     
                     <button id="like_btn" data-categoryid="{{ team.id }}" class="btn btn-primary btn-sm" type="button">
                         <span data-feather="thumbs-up"></span>

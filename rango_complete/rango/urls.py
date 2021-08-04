@@ -7,7 +7,7 @@ app_name = 'rango'
 urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.AboutView.as_view(), name='about'),
-    path('team/', views.team_index, name='team_index'),
+    #path('team/', views.team_index, name='team_index'),
     path('team/<slug:category_name_slug>/', views.team, name='team'),
     path('category/<slug:category_name_slug>/', views.show_category, name='show_category'),
     path('add_category/', views.AddCategoryView.as_view(), name='add_category'),
@@ -24,6 +24,6 @@ urlpatterns = [
     path('search_add_page/', views.SearchAddPageView.as_view(), name='search_add_page'),
     path('goto/', views.goto_url, name='goto'),
     path('vote_teams/', views.VoteTeamsView.as_view(), name='vote_teams'),
-    
+    path('teams/', views.teamView, name='teams')
 ]
 
