@@ -15,13 +15,13 @@
 
 <div class="p-4 h-100">
     {% if sport %}
-    <ul>
-        {% for sports in sport %}
-        <li>Participated teams in {{ sports.name }}
-            <a href = "{% url 'rango:team' sports.slug %}">detail</a>
-        </li>
-        {% endfor %}
-    </ul>
+        <ul>
+            {% for sports in sport %}
+                <li>Participated teams in {{ sports.name }}
+                    <a href = "{% url 'rango:team' sports.slug %}">detail</a> <!-- href to the page of participated teams in this sport-->
+                </li>
+            {% endfor %}
+        </ul>
     {% else %}
     <li class="nav-item">There are no sports present.</li>
     {% endif %}

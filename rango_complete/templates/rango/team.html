@@ -18,7 +18,7 @@
         {% for teams in team %}
         <li class="mt-5">
             <div class="row">
-                <div class="col-md-4 mt-md-0 mt-3">
+                <div class="col-md-4 mt-md-0 mt-3"> <!--show the participated teams in this sports order by the vote number -->
                     <a >{{ teams.country }}</a>
                     ( <strong id="like_count">{{ teams.likes }}</strong> Voted )
                     {{ teams.teamid }}
@@ -35,4 +35,4 @@
     {% endif %}
     </ul>
 </div>
-{% endblock %} 
+{% endblock %}

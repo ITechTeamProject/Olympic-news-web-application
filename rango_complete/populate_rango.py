@@ -158,7 +158,7 @@ def populate():
         for t in cat_data['teams']:
             add_team(c, t['country'], t['likes'], t['teamid'])
 
-    # Print out the categories we have added.
+    # Print out the sports and teams we have added.
     for c in Category.objects.all():
         for p in Page.objects.filter(category=c):
             print(f'- {c}: {p}')
