@@ -35,10 +35,6 @@ def index(request):
     #Render the response and send it back!
     return render(request, 'rango/index.html', context=context_dict)
 
-def team_index(request):
-    visitor_cookie_handler(request)
-    return render(request, 'rango/team_index.html')
-
 def show_category(request, category_name_slug):
     """
     Display required sports
