@@ -2,6 +2,9 @@ import json
 import requests
 
 def read_search_key():
+    """
+    Add the specific file to supoort the search funtion
+    """
     search_api_key = None
     try:
         with open('search.key', 'r') as f:

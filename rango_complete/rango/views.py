@@ -20,7 +20,9 @@ from rango.models import UserProfile,Team
 
 
 def index(request):
-    # return HttpResponse("Rango says hey there partner! <a href='/rango/about/'>About</a>")
+    """
+    Direct to the index page
+    """
     category_list = Category.objects.order_by('-likes')[:5]
     page_list = Page.objects.order_by('-views')[:5]
 
@@ -28,10 +30,7 @@ def index(request):
     context_dict['categories'] = category_list
     context_dict['pages'] = page_list
 
-    #request.session.set_test_cookie()
-
     visitor_cookie_handler(request)
-    #context_dict['visits'] = request.session['visits']
 
     #Render the response and send it back!
     return render(request, 'rango/index.html', context=context_dict)
@@ -42,6 +41,9 @@ def team_index(request):
     return render(request, 'rango/team_index.html')
 
 def show_category(request, category_name_slug):
+    """
+    Display required sports
+    """
     context_dict = {}
 
     try:
@@ -70,6 +72,9 @@ def show_category(request, category_name_slug):
 
 @login_required
 def add_category(request):
+    """
+    Add a sport
+    """
     form = CategoryForm()
 
     if request.method =='POST':
@@ -85,6 +90,9 @@ def add_category(request):
 
 @login_required
 def add_page(request, category_name_slug):
+    """
+    Add a news page
+    """
     try:
         category = Category.objects.get(slug=category_name_slug)
     except Category.DoesNotExist:
@@ -112,21 +120,20 @@ def add_page(request, category_name_slug):
     context_dict = {'form': form, 'category': category}
     return render(request, 'rango/add_page.html', context=context_dict)
 
-# def about(request):
-#     #return HttpResponse("Rango says here is the about page. <a href='/rango/'>Index</a>")
-#     print(request.method)
-#     print(request.user)
-
-#     # if request.session.test_cookie_worked():
-#     #     print("TEST COOKIE WORKED!")
-#     #     request.session.delete_test_cookie()
-#     context_dict = {}
-#     context_dict['boldmessage'] = "This tutorial has been put together by Shijun Zhang."
-#     visitor_cookie_handler(request)
-#     context_dict['visits'] = request.session['visits']
-#     return render(request, 'rango/about.html', context=context_dict)
+def about(request):
+    """
+    Direct to the about page
+    """
+    context_dict = {}
+    context_dict['boldmessage'] = "This tutorial has been put together by Shijun Zhang."
+    visitor_cookie_handler(request)
+    context_dict['visits'] = request.session['visits']
+    return render(request, 'rango/about.html', context=context_dict)
 
 # def register(request):
+    """
+    Previous register function
+    """
 #     registered = False
 
 #     if request.method == 'POST':
@@ -161,6 +168,9 @@ def add_page(request, category_name_slug):
 #                                        'registered': registered})
 
 # def user_login(request):
+    """
+    Previous login function
+    """
 #     if request.method == 'POST':
 #         username = request.POST.get('username')
 #         password = request.POST.get('password')
@@ -187,7 +197,9 @@ def add_page(request, category_name_slug):
 
 @login_required
 def restricted(request):
-    #return HttpResponse("Since you're logged in, you can see this text!")
+    """
+    Direct to the restricted page
+    """
     return render(request, 'rango/restricted.html')
 
 # @login_required
@@ -227,6 +239,9 @@ def visitor_cookie_handler(request):
 #     return render(request, 'rango/search.html', {'result_list': result_list})
 
 class RegisterProfileView(View):
+    """
+    Get user profile in registration
+    """
     @method_decorator(login_required)
     def get(self, request):
         form = UserProfileForm()
@@ -248,6 +263,7 @@ class RegisterProfileView(View):
         
         context_dict = {'form': form}
         return render(request, 'rango/profile_registration.html', context_dict)
+
 # @login_required
 # def register_profile(request):
 #     form = UserProfileForm()
@@ -269,6 +285,9 @@ class RegisterProfileView(View):
 #     return render(request, 'rango/profile_registration.html', context_dict)
 
 class AboutView(View):
+    """
+    Direct to the about page
+    """
     def get(self, request):
         context_dict = {}
 
@@ -278,6 +297,9 @@ class AboutView(View):
         return render(request, 'rango/about.html', context_dict)
 
 class AddCategoryView(View):
+    """
+    Add a sport
+    """
     @method_decorator(login_required)
     def get(self, request):
         form = CategoryForm()
@@ -299,6 +321,9 @@ class AddCategoryView(View):
 
 
 class ProfileView(View):
+    """
+    The view of user profile
+    """
     def get_user_details(self, username):
         try:
             user = User.objects.get(username=username)
@@ -360,6 +385,9 @@ def get_category_list(max_results=0, starts_with=''):
     return category_list
 
 class CategorySuggestionView(View):
+    """
+    Display suggest sports list while searching
+    """
     def get(self, request):
         if 'suggestion' in request.GET:
             suggestion = request.GET['suggestion']
@@ -392,6 +420,9 @@ class CategorySuggestionView(View):
 #         return HttpResponse(category.likes)
 
 class SearchAddPageView(View):
+    """
+    Search a sport and add a piece of news in it
+    """
     @method_decorator(login_required)
     def get(self, request):
         category_id = request.GET['category_id']
@@ -430,27 +461,31 @@ def goto_url(request):
 
 @login_required
 def team(request, category_name_slug):
+    """
+    """
     category_list = Category.objects.get(slug=category_name_slug)
     team_list = Team.objects.filter(name = category_list).order_by('-likes')#[:10]
 
     context_dict = {}
-    #context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['sport'] = category_list
     context_dict['team'] = team_list
     return render(request, 'rango/team.html', context=context_dict) 
 
 @login_required
 def teamView(request):
+    """
+    """
     sport_list = Category.objects.order_by('-views')
 
-
     context_dict = {}
-  
     context_dict['sport'] = sport_list
    
     return render(request, 'rango/teams.html', context=context_dict)
 
 class VoteTeamsView(View):
+    """
+    Vote for a team
+    """
     @method_decorator(login_required)
     def get(self, request):
         team_id = request.GET['team_id']
