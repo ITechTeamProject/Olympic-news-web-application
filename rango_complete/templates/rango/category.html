@@ -1,6 +1,7 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 
+<!-- the page of a specific sport(redirected from the side bar) -->
 {% block title_block %}
     {% if category %}
         {{ category.name }}
@@ -9,29 +10,23 @@
     {% endif %}
 {% endblock %}
 
+<!-- the header part -->
 {% block body_block %}
     {% if category %}
     <div class="jumbotron p-4">
         <div class="container">
             <h1 class="jumbotron-heading">{{ category.name }}</h1>
             <a style="color:rgb(211, 124, 11)" href="{% url 'rango:team' category.slug %}">Participating Team</a>
-            <!--<div>
-                <strong id="like_count">{{ category.likes }}</strong> likes
-                {% if user.is_authenticated %}
-                <button id="like_btn" data-categoryid="{{ category.id }}" class="btn btn-primary btn-sm" type="button">
-                    <span data-feather="thumbs-up"></span>
-                    Like Category
-                </button>
-                {% endif %}
-            </div>-->
         </div>
     </div>
 
     {% if user.is_authenticated %}
+    <!-- verify login status -->
     <div>
         <h2 class="jumbotron-heading">News</h2>
     </div>
     {% if pages %}
+    <!-- displaying the top viewed pages of this sport-->
     <ul>
         {% for page in pages %}
             <li>
@@ -49,6 +44,7 @@
     {% endif %}
     
     {% if user.is_authenticated %}
+    <!-- granted users an 'add page' function if logged in-->
     <a style="color:rgb(255, 36, 36)" href="{% url 'rango:add_page' category.slug %}">Add news</a><br/>
     {% endif %}
     {% else %}
@@ -56,6 +52,7 @@
     {% endif %}
     <div>
         {% if user.is_authenticated %}
+        <!-- users could search for specific news if logged in-->
         <form class="form-inline" id="user-form" method="post" action="{% url 'rango:show_category' category.slug %}">
             {% csrf_token %}
     
@@ -69,6 +66,7 @@
     </div>
     
     <div>
+        <!-- displaying the searching results(news titles & urls) if exiested-->
         {% if result_list %}
         <h2>Results</h2>
     
@@ -79,6 +77,7 @@
                         <a href="{{ result.link }}">
                             {{ result.title|safe|escape }}
                         </a>
+                        <!-- add the news to above -->
                         <button class="btn btn-info btn-sm rango-page-add" type="button" data-categoryid="{{ category.id }}" 
                         data-title="{{ result.title }}" data-url="{{ result.link }}">Add</button>
                     </h3>

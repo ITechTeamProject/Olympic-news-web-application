@@ -1,6 +1,7 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 
+<!-- this page is for voting for a team -->
 {% block title_block %}
    Team
 {% endblock %}
@@ -13,23 +14,25 @@
 </div>
 
 <div class="container p-4 h-100">
-    <ul>
-    {% if team %}
-        {% for teams in team %}
-            <li>
-                <a >{{ teams.country }}</a>
-                <div> <!--show the participated teams in this sports order by the vote number -->
-                    <strong id="like_count">{{ teams.likes }}</strong> Voted
-                    
-                    <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-primary btn-sm" type="button" > <!-- add buttons to vote for the team, it would react with ajax -->
-                        <span data-feather="thumbs-up"></span>
-                        Vote for this team
-                    </button>
-                    
-                </div>
-            </li>
-        {% endfor %}
-    {% endif %}
-    </ul>
+    <form>
+        <ul>
+            {% if team %}
+                {% for teams in team %}
+                    <li>
+                        <a >{{ teams.country }}</a>
+                        <div> <!--show the participated teams in this sports order by the vote number -->
+                            <strong id="like_count">{{ teams.likes }}</strong> Voted
+                            <!-- add buttons to vote for the team, it would react with ajax -->
+                            <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-primary btn-sm"> 
+                                <span data-feather="thumbs-up"></span>
+                                Vote for this team
+                            </button>
+                            
+                        </div>
+                    </li>
+                {% endfor %}
+            {% endif %}
+            </ul>
+    </form>
 </div>
 {% endblock %} 

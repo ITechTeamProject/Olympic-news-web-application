@@ -2,10 +2,12 @@
 
 {% load staticfiles %}
 
+<!-- this page is for registration(using django-registration-redux) -->
 {% block title_block %}
     Register
 {% endblock %}
 
+<!--the header part -->
 {% block body_block %}
 <body style="background-color: #eee;">
     <div class="text-center p-2">
@@ -14,42 +16,50 @@
         </div>
     </div>
     
+    <!-- get user informaiton in registration-->
     <div class="input-center p-3">
         <div class="form-group w-50 h-80 mx-auto">
             <form role="form" method="post" action=".">
                 {% csrf_token %}
                 <div class="form-group">
                     <p class="required">
+                        <!-- get username -->
                         <label class="required" for="id_username">Username</label>
                         <input style="height: 40px;" class="form-control" id="id_username" maxlength="30"
                             name="username" type="text">
                         <span style="color: rgb(245, 99, 99);" class="helptext">
                             <small>
+                                <!-- username registration tips -->
                                 Required. 150 characters or fewer.
                                 Letters, digits and @/./+/-/_ only.
                             </small>
                         </span>
                     </p>
                     <p class="required">
+                        <!-- get email -->
                         <label class="required" for="id_email">E-mail</label>
                         <input style="height: 40px;" class="form-control" id="id_email" name="email" type="email" />
                     </p>
                     <p class="required">
+                        <!-- get password -->
                         <label class="required" for="id_password1">Password</label>
                         <input style="height: 40px;" class="form-control" id="id_password1" name="password1" type="password" />
                         <span style="color: rgb(245, 99, 99);" class="helptext">
                             <small>
+                                <!-- password registration tips -->
                                 Your password must contain at least 6 characters, and include Letters, digits and @/./+/-/_ only.
                             </small>
                         </span>
                     </p>
     
                     <p class="required">
+                        <!-- confirm password -->
                         <label class="required" for="id_password2" >Password confirmation</label>
                         <input style="height: 40px;" class="form-control" id="id_password2" name="password2" type="password" />
                         <span style="color: rgb(245, 99, 99);" class="helptext"><small>The same password as before, for verification.</small> </span>
                     </p>
                 </div>
+                <!-- sumit the form for registration-->
                 <button class="w-100 btn btn-md btn-outline-danger" type="submit">Sign up</button>
             </form>
         </div>
