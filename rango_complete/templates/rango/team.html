@@ -6,33 +6,34 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="text-center p-2">
+<div class="jumbotron p-4">
     <div class="container">
         <h1 class="jumbotron-heading">{{ sport.name }}</h1>
     </div>
 </div>
 
-<div class="container p-4 h-100">
-    <ul>
-    {% if team %}
-        {% for teams in team %}
-        <li class="mt-5">
-            <div class="row">
-                <div class="col-md-4 mt-md-0 mt-3"> <!--show the participated teams in this sports order by the vote number -->
-                    <a >{{ teams.country }}</a>
-                    ( <strong id="like_count">{{ teams.likes }}</strong> Voted )
-                    {{ teams.teamid }}
+<div class="container">
+    <form>
+        <ul>
+        {% if team %}
+            {% for teams in team %}
+            <li class="mt-5">
+                <div class="row">
+                    <div class="col-sm"> <!--show the participated teams in this sports order by the vote number -->
+                        <a >{{ teams.country }}</a>
+                        ( <strong id="like_count">{{ teams.likes }}</strong> Voted )
+                    </div>
+                    <div class="col-sm text-center">
+                        <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-primary btn-sm">
+                            <span data-feather="thumbs-up"></span>
+                            Vote for this team
+                        </button>
+                    </div>
                 </div>
-                <div class="col-md-4 mt-md-0 mt-3">
-                    <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-primary btn-sm" type="button" >
-                        <span data-feather="thumbs-up"></span>
-                        Vote for this team
-                    </button>
-                </div>
-            </div>
-        </li>
-        {% endfor %}
-    {% endif %}
-    </ul>
+            </li>
+            {% endfor %}
+        {% endif %}
+        </ul>
+    </form>
 </div>
 {% endblock %}

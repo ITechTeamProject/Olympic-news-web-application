@@ -7,11 +7,12 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="text-center p-2">
+<div class="jumbotron p-4">
     <div class="container">
         <h1 class="jumbotron-heading">Add a Sport</h1>
     </div>
 </div>
+
 <div class="text-center p-5">
     <form role="form" id="category_form" method="post" action="{% url 'rango:add_category' %}">
     {% csrf_token %}
@@ -29,6 +30,4 @@
         </div>
     </form>
 </div>
-
-
 {% endblock %}
