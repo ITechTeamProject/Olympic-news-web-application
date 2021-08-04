@@ -39,7 +39,7 @@ $(document).ready(function() {
     $('#like_btn').click(function() {
         var catecategoryIdVar;
         
-        catecategoryIdVar = $(this).attr('data-categoryid');
+        catecategoryIdVar = $(this).attr('data-teamid');
        
         $.get('/rango/vote_teams/',
             {'team_id': catecategoryIdVar},          

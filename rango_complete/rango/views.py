@@ -487,7 +487,7 @@ class VoteTeamsView(View):
         team_id = request.GET['team_id']
        
         try:
-            team = Team.objects.get(id=int(team_id))
+            team = Team.objects.get(id = team_id)
         except Team.DoesNotExist:
             return HttpResponse(-1)
         except ValueError:
