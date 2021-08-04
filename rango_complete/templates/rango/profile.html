@@ -28,7 +28,7 @@
         
         <div class="col-md-4 mt-md-0 mt-3">
             {% if selected_user == user %}
-            <form method="post" action="." enctype="multipart/form-data">
+            <form method="post" action="." enctype="multipart/form-data"">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <!-- update profile picture -->

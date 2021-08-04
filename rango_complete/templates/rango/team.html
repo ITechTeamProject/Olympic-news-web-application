@@ -9,7 +9,7 @@
 {% block body_block %}
 <div class="jumbotron p-4">
     <div class="container">
-        <h1 class="jumbotron-heading">{{ sport.name }}</h1>
+        <h1 class="jumbotron-heading">Participating Team - {{ sport.name }}</h1>
     </div>
 </div>
 
@@ -28,8 +28,8 @@
                     </div>
                     <div class="col-sm text-center">
                         <!-- add buttons to vote for the team, it would react with ajax -->
-                        <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-primary btn-sm">
-                            <span data-feather="thumbs-up"></span>
+                        <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-sm" style="background-color:rgb(211, 124, 11);">
+                            <span data-feather="flag"></span>
                             Vote for this team
                         </button>
                     </div>

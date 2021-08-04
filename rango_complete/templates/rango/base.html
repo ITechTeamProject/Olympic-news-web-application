@@ -83,7 +83,7 @@
                     {% block body_block %}{% endblock %}
 
                     <!-- setting footer -->
-                    <footer style=" width: 100%; height: auto; background-color:rgb(175, 30, 59)" class="bd-footer py-5 mt-5 mx-auto">
+                    <footer style=" width: 100%; height: auto; background-color:rgb(175, 30, 59)" class="bd-footer py-3 mt-5 mx-auto">
                         <!-- setting links at the footer -->
                         <div style="color:ivory;" class="container-fluid text-center text-md-left">
                             <!-- grid row -->
@@ -96,21 +96,21 @@
                                 <div class="col-md-3 mb-md-0 mb-3">
                                     <h5 class="text-uppercase">Olympic Games</h5>
                                     <ul class="list-unstyled">
-                                        <li><a style="color:ivory;" href="#!">Tokyo 2020</a></li>
-                                        <li><a style="color:ivory;" href="#!">All Olympic Games</a></li>
+                                        <li><a style="color:ivory;" href="{% url 'rango:index' %}">Tokyo 2020</a></li>
+                                        <li><a style="color:ivory;" href="{% url 'rango:index' %}">All Olympic Games</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-2 mb-md-0 mb-3">
                                     <h5 class="text-uppercase">News</h5>
                                     <ul class="list-unstyled">
-                                        <li><a style="color:ivory;" href="#!">Games</a></li>
-                                        <li><a style="color:ivory;" href="#!">Teams</a></li>
+                                        <li><a style="color:ivory;" href="{% url 'rango:index' %}">Games</a></li>
+                                        <li><a style="color:ivory;" href="{% url 'rango:teams' %}">Teams</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-2 mb-md-0 mb-3">
                                     <h5 class="text-uppercase">Contact Us</h5>
                                     <ul class="list-unstyled">
-                                        <li><a style="color:ivory;" href="#!">Email</a></li>
+                                        <li><a style="color:ivory;" href="{% url 'rango:contact' %}">Email</a></li>
                                     </ul>
                                 </div>
                             </div>
