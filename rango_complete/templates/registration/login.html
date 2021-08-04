@@ -7,33 +7,40 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="jumbotron p-4">
+<div class="text-center p-2">
   <div class="container">
       <h1 class="jumbotron-heading">Log in to your Olympic News Account</h1>
   </div>
 </div>
 
-<body class="text-center">
-    <main class="form-signin h-100">
-      <form class="form-signin" role="form" method="post" action=".">
-        <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet">
-        <div class="container">
-            <form class="form-signin" role="form" method="post" action=".">
-                {% csrf_token %}
-                <label for="inputUsername" class="sr-only">Username</label>
-                <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
-        
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
-                
-                <button class="w-50 btn btn-md btn-outline-danger" type="submit" value="Submit">LOG IN</button>
-            </form>
-        </div>
-      </form>
-    </main>
-</body>
-<p>
-  Not registered?
-  <a style="color: rgb(221, 75, 75);" class="alert-link" href="{% url 'registration_register' %}">Register here!</a>
-</p>
+<div class="text-center p-5">
+  <main class="form-signin">
+    <form class="form-signin" role="form" method="post" action=".">
+      <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet">
+      <div class="container">
+        <form class="form-signin" role="form" method="post" action=".">
+            {% csrf_token %}
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
+    
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+            
+            <div class="checkbox mb-3">
+              <label>
+                <input type="checkbox" value="remember-me">
+                Remember me
+              </label>
+            </div>
+
+            <button class="btn btn-lg btn-block btn-outline-danger" type="submit" value="Submit">LOG IN</button>
+        </form>
+      </div>
+    </form>
+  </main>
+  <p class="text-center">
+    Not registered?
+    <a style="color: rgb(221, 75, 75);" class="alert-link" href="{% url 'registration_register' %}">Register here!</a>
+  </p>
+</div>
 {% endblock %}

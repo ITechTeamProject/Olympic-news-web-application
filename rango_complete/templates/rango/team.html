@@ -6,28 +6,16 @@
 {% endblock %}
 
 {% block body_block %}
-    {% if team %}
-        <div class="jumbotron p-4">
-            <div class="container">
-                <h1 class="jumbotron-heading">{{ sport.name }}</h1>
+<div class="text-center p-2">
+    <div class="container">
+        <h1 class="jumbotron-heading">{{ sport.name }}</h1>
+    </div>
+</div>
 
-        <!--<div>
-            <strong id="like_count">{{ category.likes }}</strong> likes
-            {% if user.is_authenticated %}
-            <button id="like_btn" data-categoryid="{{ category.id }}" class="btn btn-primary btn-sm" type="button">
-                <span data-feather="thumbs-up"></span>
-                Like Category
-            </button>
-            {% endif %}
-        </div>-->
-            </div>
-        </div>
-    {% endif %}   
-    
-    
-    {% if team %}
+<div class="container p-4 h-100">
     <ul>
-        {% for team in team %}
+    {% if team %}
+        {% for teams in team %}
             <li>
                 <a >{{ team.country }}</a>
                 <div>
@@ -41,9 +29,7 @@
                 </div>
             </li>
         {% endfor %}
-    </ul>
-    {% else %}
-    
     {% endif %}
-    
+    </ul>
+</div>
 {% endblock %} 
