@@ -7,31 +7,28 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="jumbotron p-4">
+<div class="text-center p-2">
     <div class="container">
         <h1 class="jumbotron-heading">Add a Sport</h1>
     </div>
 </div>
-<div class="container" style="width:100%;text-align:center">
-    <div class="row" style="display:block;margin:0 auto">
-        <form role="form" id="category_form" method="post" action="{% url 'rango:add_category' %}">
-        {% csrf_token %}
-        {% for hidden in form.hidden_fields %}
-            {{ hidden }}
-        {% endfor %}
-        {% for field in form.visible_fields %}
-            {{ field.errors }}
-            {{ field.help_text }}<br />
-            {{ field }}<br />
-        <div class="p-2"></div>
-        {% endfor %}
-        <button class="btn btn-md btn-outline-danger" type="submit" name="submit">
-            Create Sport
-        </button>
+
+<div class="text-center p-5">
+    <form role="form" id="category_form" method="post" action="{% url 'rango:add_category' %}">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        <p style="font-size:20px;">{{ field.help_text }}</p>
+        <p style="font-size:20px;">{{ field }}</p>
+        
+    {% endfor %}
         <div class="p-5">
+            <button class="btn btn-lg btn-outline-danger" type="submit" name="submit" style="width: auto;">Create Sport</button>
         </div>
-        </form>
-    </div>
+    </form>
 </div>
 
 
