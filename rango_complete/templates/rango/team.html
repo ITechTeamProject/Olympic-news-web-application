@@ -18,10 +18,10 @@
         {% for teams in team %}
             <li>
                 <a >{{ teams.country }}</a>
-                <div>
+                <div> <!--show the participated teams in this sports order by the vote number -->
                     <strong id="like_count">{{ teams.likes }}</strong> Voted
                     
-                    <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-primary btn-sm" type="button" >
+                    <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-primary btn-sm" type="button" > <!-- add buttons to vote for the team, it would react with ajax -->
                         <span data-feather="thumbs-up"></span>
                         Vote for this team
                     </button>

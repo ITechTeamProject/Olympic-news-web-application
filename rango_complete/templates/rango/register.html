@@ -14,13 +14,14 @@
             <h2 class="h2">
             {% if registered %}
             Rango says: <strong>thank you for registering!</strong> 
-            <a href="{% url 'rango:index' %}">Return to the homepage.</a><br />
+            <a href="{% url 'rango:index' %}">Return to the homepage.</a><br /> <!-- after successed registration, it would return to the homepage-->
             {% else %}
             Rango says: <strong>register here!</strong><br />
             </h2>
         </div>
     </div>
 </div>      
+<!-- form for input the detail information of registration -->
 <form id="user_form" method="post" action="{% url 'rango:register' %}" 
        enctype="multipart/form-data">
     {% csrf_token %}

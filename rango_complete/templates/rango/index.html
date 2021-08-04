@@ -46,7 +46,7 @@
                     {% if pages %}
                     <ul class="list-group">
                     {% for page in pages %}
-                        <li class="list-group-item">
+                        <li class="list-group-item"> <!-- providing href links to the most views news pages-->
                             <a style="color:rgb(204, 167, 120)" href="{{ page.url }}"><strong>{{ page.title }}</strong></a>
                         </li>
                     {% endfor %}
