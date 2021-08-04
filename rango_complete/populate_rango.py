@@ -200,4 +200,3 @@ def add_team(cat, country, likes=0):
 if __name__ == '__main__':
     print('Starting Rango population script...')
     populate()
-

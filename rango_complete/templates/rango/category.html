@@ -12,23 +12,23 @@
 
 <!-- the header part -->
 {% block body_block %}
-    {% if category %}
-    <div class="jumbotron p-4">
-        <div class="container">
-            <h1 class="jumbotron-heading">{{ category.name }}</h1>
-            <a style="color:rgb(211, 124, 11)" href="{% url 'rango:team' category.slug %}">Participating Team</a>
-        </div>
+{% if category %}
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">{{ category.name }}</h1>
+        <a style="color:rgb(211, 124, 11); text-decoration: underline" href="{% url 'rango:team' category.slug %}">Participating Team</a>
     </div>
+</div>
 
+<div class="container p-4 h-100">
     {% if user.is_authenticated %}
     <!-- verify login status -->
     <div>
         <h2 class="jumbotron-heading">News</h2>
-    </div>
-    {% if pages %}
-    <!-- displaying the top viewed pages of this sport-->
-    <ul>
-        {% for page in pages %}
+        <a style="color:rgb(200, 25, 25); text-decoration: underline" href="{% url 'rango:add_page' category.slug %}">Add news</a>
+        {% if pages %}
+        <ul>
+            {% for page in pages %}
             <li>
                 <a style="color:rgb(204, 167, 120)" href="{% url 'rango:goto' %}?page_id={{ page.id }}">{{ page.title }}</a>
                 {% if page.views > 1 %}
@@ -37,20 +37,15 @@
                     ({{ page.views }} view)
                 {% endif %}
             </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <strong>No news currently in this sport.</strong>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <br /><strong>No news currently in this sport.</strong>
+        {% endif %}
+    </div>
     {% endif %}
-    
-    {% if user.is_authenticated %}
-    <!-- granted users an 'add page' function if logged in-->
-    <a style="color:rgb(255, 36, 36)" href="{% url 'rango:add_page' category.slug %}">Add news</a><br/>
-    {% endif %}
-    {% else %}
-    The specified sport does not exist.
-    {% endif %}
-    <div class="container h-100">
+
+    <div class="container">
         {% if user.is_authenticated %}
         <!-- users could search for specific news if logged in-->
         <form class="form-inline" id="user-form" method="post" action="{% url 'rango:show_category' category.slug %}">
@@ -91,6 +86,7 @@
     </div>
 
 {% else %}
-    The specified sport does not exist.
+The specified sport does not exist.
 {% endif %}
+</div>
 {% endblock %} 

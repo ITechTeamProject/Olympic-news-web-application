@@ -7,32 +7,37 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="text-center p-2">
+<div class="jumbotron p-4">
     <div class="container">
-        <h1 class="jumbotron-heading">{{ sport.name }}</h1>
+        <h1 class="jumbotron-heading">Participating Team - {{ sport.name }}</h1>
     </div>
 </div>
 
-<div class="container p-4 h-100">
-    <form> <!--using form to make the vote result could update timely-->
+<div class="container">
+    <!--using form to make the vote result could update timely-->
+    <form>
         <ul>
-            {% if team %}
-                {% for teams in team %}
-                    <li>
+        {% if team %}
+            {% for teams in team %}
+            <li class="mt-5">
+                <div class="row">
+                    <div class="col-sm">
+                        <!--show the participated teams in this sports order by the vote number -->
                         <a >{{ teams.country }}</a>
-                        <div> <!--show the participated teams in this sports order by the vote number -->
-                            <strong id="like_count">{{ teams.likes }}</strong> Voted
-                            <!-- add buttons to vote for the team, it would react with ajax -->
-                            <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-primary btn-sm"> 
-                                <span data-feather="thumbs-up"></span>
-                                Vote for this team
-                            </button>
-                            
-                        </div>
-                    </li>
-                {% endfor %}
-            {% endif %}
-            </ul>
+                        ( <strong id="like_count">{{ teams.likes }}</strong> Voted )
+                    </div>
+                    <div class="col-sm text-center">
+                        <!-- add buttons to vote for the team, it would react with ajax -->
+                        <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-sm" style="background-color:rgb(211, 124, 11);">
+                            <span data-feather="flag"></span>
+                            Vote for this team
+                        </button>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        {% endif %}
+        </ul>
     </form>
 </div>
-{% endblock %} 
+{% endblock %}
