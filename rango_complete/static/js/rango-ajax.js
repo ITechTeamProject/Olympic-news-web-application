@@ -38,10 +38,11 @@ $(document).ready(function() {
 
     $('#like_btn').click(function() {
         var catecategoryIdVar;
-        catecategoryIdVar = $(this).attr('data-categoryid');
         
+        catecategoryIdVar = $(this).attr('data-teamid');
+       
         $.get('/rango/vote_teams/',
-            {'team_id': catecategoryIdVar},
+            {'team_id': catecategoryIdVar},          
             function(data) {
                 $('#like_count').html(data);
                 $('#like_btn').hide();
