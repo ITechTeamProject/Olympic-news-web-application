@@ -495,3 +495,4 @@ class VoteTeamsView(View):
         team.likes = team.likes + 1
         team.save()
         return HttpResponse(team.likes)
+

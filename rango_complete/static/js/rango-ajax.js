@@ -36,7 +36,8 @@ $(document).ready(function() {
               })
     });
 
-    $('#like_btn').click(function() {
+    $(document).on("click",'#like_btn',function() {
+       
         var catecategoryIdVar;
         
         catecategoryIdVar = $(this).attr('data-teamid');
@@ -47,5 +48,7 @@ $(document).ready(function() {
                 $('#like_count').html(data);
                 $('#like_btn').hide();
             })
+        
+ 
     });
 });
