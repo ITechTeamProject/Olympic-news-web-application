@@ -36,7 +36,6 @@ def index(request):
     return render(request, 'rango/index.html', context=context_dict)
 
 def team_index(request):
-
     visitor_cookie_handler(request)
     return render(request, 'rango/team_index.html')
 
@@ -120,20 +119,20 @@ def add_page(request, category_name_slug):
     context_dict = {'form': form, 'category': category}
     return render(request, 'rango/add_page.html', context=context_dict)
 
-def about(request):
-    """
-    Direct to the about page
-    """
-    context_dict = {}
-    context_dict['boldmessage'] = "This tutorial has been put together by Shijun Zhang."
-    visitor_cookie_handler(request)
-    context_dict['visits'] = request.session['visits']
-    return render(request, 'rango/about.html', context=context_dict)
+# def about(request):
+#    """
+#    Direct to the about page
+#    """
+#    context_dict = {}
+#    context_dict['boldmessage'] = "This tutorial has been put together by Shijun Zhang."
+#    visitor_cookie_handler(request)
+#    context_dict['visits'] = request.session['visits']
+#    return render(request, 'rango/about.html', context=context_dict)
 
 # def register(request):
-    """
-    Previous register function
-    """
+#    """
+#    Previous register function
+#    """
 #     registered = False
 
 #     if request.method == 'POST':
@@ -168,9 +167,9 @@ def about(request):
 #                                        'registered': registered})
 
 # def user_login(request):
-    """
-    Previous login function
-    """
+#    """
+#    Previous login function
+#    """
 #     if request.method == 'POST':
 #         username = request.POST.get('username')
 #         password = request.POST.get('password')
