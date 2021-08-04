@@ -1,4 +1,6 @@
 import os
+
+from django.db.models.fields import NullBooleanField
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rango_complete.settings') 
 import django
 django.setup()
@@ -22,6 +24,18 @@ def populate():
         'url':'https://olympics.com/tokyo-2020/en/news/republic-of-korea-wins-archery-women-s-team-gold-for-ninth-straight-games',
         'views':30} ]
 
+    archery_teams = [
+         {'country':'Canada',
+          'likes':1125,
+          'teamid': '1.1'},
+         {'country':'Janpan',
+          'likes':225,
+          'teamid': '1.2'},
+         {'country':'People\'s Republic of China',
+          'likes':5217,
+          'teamid': '1.3'}
+    ]
+
     athletics_pages = [
         {'title':'Athletes to watch: Noah Lyles',
         'url':'https://olympics.com/tokyo-2020/en/news/athletes-to-watch-noah-lyles',
@@ -32,6 +46,18 @@ def populate():
         {'title':'How to watch and follow athletics competition for Friday, 30th July at Tokyo 2020',
         'url':'https://olympics.com/tokyo-2020/en/news/watch-follow-athletics-competition-olympics-tokyo-2020-friday-29-july',
         'views':40} ]
+    
+    athletics_teams = [
+         {'country':'Canada',
+          'likes':1003,
+          'teamid': '2.1'},
+         {'country':'Janpan',
+          'likes':324,
+          'teamid': '2.2'},
+         {'country':'People\'s Republic of China',
+          'likes':3417,
+          'teamid': '2.3'}
+    ]
 
     badminton_pages = [
         {'title':'Tokyo 2020 Badminton day 9: Women\'s singles gold, men\'s singles semi-finals',
@@ -40,6 +66,18 @@ def populate():
         {'title':'Tokyo 2020 Badminton day 8: Men\'s doubles set to reach exciting conclusion',
         'url':'http://flask.pocoo.org',
         'views':70} ]
+    
+    badminton_teams = [
+         {'country':'Canada',
+          'likes':2442,
+          'teamid': '3.1'},
+         {'country':'Janpan',
+          'likes':124,
+          'teamid': '3.2'},
+         {'country':'People\'s Republic of China',
+          'likes':3252,
+          'teamid': '3.3'}
+    ]
 
     baseball_pages = [
         {'title':'Israel’s baseball team: From dreamers to Olympians',
@@ -48,6 +86,18 @@ def populate():
         {'title':'Japan name their Olympic Baseball squad for Tokyo 2020',
         'url':'https://olympics.com/tokyo-2020/en/news/japan-name-their-olympic-baseball-squad-for-tokyo-2020',
         'views':70} ]
+
+    baseball_teams = [
+         {'country':'Canada',
+          'likes':3212,
+          'teamid': '4.1'},
+         {'country':'Janpan',
+          'likes':135,
+          'teamid': '4.2'},
+         {'country':'People\'s Republic of China',
+          'likes':1244,
+          'teamid': '4.3'}
+    ]
     
     basketball_pages = [
         {'title':'Matisse Thybulle: Australian basketball star, artistic defender and vlogging sensation',
@@ -56,6 +106,18 @@ def populate():
         {'title':'Basketball: NBA winners Jrue Holiday and Khris Middleton en route to Tokyo 2020',
         'url':'https://olympics.com/tokyo-2020/en/news/basketball-nba-winners-jrue-holiday-khris-middleton-route-tokyo-2020',
         'views':23} ]
+
+    basketball_teams = [
+         {'country':'Canada',
+          'likes':1241,
+          'teamid': '5.1'},
+         {'country':'Janpan',
+          'likes':432,
+          'teamid': '5.2'},
+         {'country':'People\'s Republic of China',
+          'likes':5312,
+          'teamid': '5.3'}
+    ]
     
     diving_pages = [
         {'title':'Jennifer Abel and Melissa Citrini-Beaulieu react after winning synchro diving silver for Canada',
@@ -65,21 +127,24 @@ def populate():
         'url':'https://olympics.com/tokyo-2020/en/news/exceptional-china-win-diving-gold-in-synchronised-3m-springboard',
         'views':7} ]
 
-    archery_teams = [
+    diving_teams = [
          {'country':'Canada',
-          'likes':1125},
+          'likes':2532,
+          'teamid': '6.1'},
          {'country':'Janpan',
-          'likes':225},
+          'likes':432,
+          'teamid': '6.2'},
          {'country':'People\'s Republic of China',
-          'likes':5217}
+          'likes':6421,
+          'teamid': '6.3'}
     ]
 
     cats = {'Archery': {'pages': archery_pages, 'teams': archery_teams, 'views': 128, 'likes': 64},
-            'Athletics': {'pages': athletics_pages, 'teams': archery_teams,'views': 64, 'likes': 32}, 
-            'Badminton': {'pages': badminton_pages, 'teams': archery_teams,'views': 32, 'likes': 16},
-            'Baseball': {'pages': baseball_pages, 'teams': archery_teams,'views': 32, 'likes': 16},
-            'Basketball': {'pages': basketball_pages, 'teams': archery_teams,'views': 30, 'likes': 18},
-            'Diving': {'pages': diving_pages, 'teams': archery_teams,'views': 34, 'likes': 10},}
+            'Athletics': {'pages': athletics_pages, 'teams': athletics_teams,'views': 64, 'likes': 32}, 
+            'Badminton': {'pages': badminton_pages, 'teams': badminton_teams,'views': 32, 'likes': 16},
+            'Baseball': {'pages': baseball_pages, 'teams': baseball_teams,'views': 32, 'likes': 16},
+            'Basketball': {'pages': basketball_pages, 'teams': basketball_teams,'views': 30, 'likes': 18},
+            'Diving': {'pages': diving_pages, 'teams': diving_teams,'views': 34, 'likes': 10},}
 
     # If you want to add more categories or pages,
     # add them to the dictionaries above.
@@ -91,7 +156,7 @@ def populate():
         for p in cat_data['pages']:
             add_page(c, p['title'], p['url'], views=p['views'])
         for t in cat_data['teams']:
-            add_team(c, t['country'], t['likes'])
+            add_team(c, t['country'], t['likes'], t['teamid'])
 
     # Print out the categories we have added.
     for c in Category.objects.all():
@@ -114,9 +179,10 @@ def add_cat(name, views=0, likes=0):
     c.save()
     return c
 
-def add_team(cat, country, likes=0):
+def add_team(cat, country, likes=0, teamid=''):
     t = Team.objects.get_or_create(name=cat, country=country)[0]
     t.likes = likes
+    t.teamid = teamid
     t.save()
     return t
 

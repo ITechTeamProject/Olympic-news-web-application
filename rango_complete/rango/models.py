@@ -58,7 +58,7 @@ class Team(models.Model):
     likes = models.IntegerField(default=0)
     name = models.ForeignKey(Category, on_delete=models.CASCADE)
     country = models.CharField(max_length=128, blank=True, null=True)
-    id = models.CharField(max_length=128, blank=True, primary_key=True)
+    teamid = models.CharField(max_length=128, blank=True)
     
     def __str__(self):
         return self.country

@@ -16,18 +16,21 @@
     <ul>
     {% if team %}
         {% for teams in team %}
-            <li>
-                <a >{{ teams.country }}</a>
-                <div>
-                    <strong id="like_count">{{ teams.likes }}</strong> Voted
-                    
+        <li class="mt-5">
+            <div class="row">
+                <div class="col-md-4 mt-md-0 mt-3">
+                    <a >{{ teams.country }}</a>
+                    ( <strong id="like_count">{{ teams.likes }}</strong> Voted )
+                    {{ teams.teamid }}
+                </div>
+                <div class="col-md-4 mt-md-0 mt-3">
                     <button id="like_btn" data-teamid="{{ teams.id }}" class="btn btn-primary btn-sm" type="button" >
                         <span data-feather="thumbs-up"></span>
                         Vote for this team
                     </button>
-                    
                 </div>
-            </li>
+            </div>
+        </li>
         {% endfor %}
     {% endif %}
     </ul>

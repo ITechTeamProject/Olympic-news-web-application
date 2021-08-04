@@ -8,19 +8,22 @@
 
 {% block body_block %}
 
-<div class="container">
+<div class="text-center p-2">
         <h1 class="jumbotron-heading">{{ selected_user.username }}'s Profile</h1><br /><br />
 </div>
 
 
 <div class="container h-100">
     <div class="row">
-        {% if user_profile.picture %}
-        <img src="{{ MEDIA_URL }}{{ user_profile.picture }}" width="300" height="300" alt="{{ selected_user.username }}'s profile image"/><br />
-        {% else %}
-        <img src="https://lorempixel.com/300/300/sports/" width="300" height="300" alt="Placeholder image" />
-        {% endif %}
-        <div>
+        <div class="col-md-4 mt-md-0 mt-3">
+            {% if user_profile.picture %}
+            <img src="{{ MEDIA_URL }}{{ user_profile.picture }}" width="300" height="300" alt="{{ selected_user.username }}'s profile image"/><br />
+            {% else %}
+            <img src="https://lorempixel.com/300/300/sports/" width="300" height="300" alt="Placeholder image" />
+            {% endif %}
+        </div>
+        
+        <div class="col-md-4 mt-md-0 mt-3">
             {% if selected_user == user %}
             <form method="post" action="." enctype="multipart/form-data">
                 {% csrf_token %}
@@ -28,10 +31,8 @@
                 <input type="submit" value="Update" />
             </form>
             {% else %}
-            <p>
-                <strong>Website:</strong>
-                <a href="{{ user_profile.website }}">{{ user_profile.website }}</a>
-            </p>
+            <strong>Website:</strong>
+            <a href="{{ user_profile.website }}">{{ user_profile.website }}</a>
             {% endif %}
         </div>
     </div>

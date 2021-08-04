@@ -8,56 +8,33 @@
 
 {% block body_block %}
 
-<div class="text-center">
+<div class="text-center p-2">
     <div class="container">
         <h1 class="jumbotron-heading">Welcome to Olympic News!</h1>
     </div>
     <img src="{% static 'images/Tokyo.png' %}" alt="Picture of Tokyo" style="width: 100%; height: 100%"/>
-</div><br />
+</div>
 
-<div class="container text-center">
-    <div class="row text-center">
-        <!--<div class="col-md-6">
-            <div class="card mb-6">
-                <div class="card-body">
-                    <h2>Most Viewed Sports</h2>
-                    <p class="card-text">
-                    {% if categories %}
-                    <ul class="list-group">
-                    {% for category in categories %}
-                        <li class="list-group-item">
-                        <a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a>
-                        </li>
-                    {% endfor %}
-                    </ul>
-                    {% else %}
-                        <strong>There are no categories present.</strong>
-                    {% endif %}
-                    </p>
-                </div>
-            </div>
-        </div>-->
-
+<div class="container p-4">
+    <div class="row">
         <div class="container">
-            <a style="color:rgb(211, 124, 11)"><h2>Most Viewed News</h2></a>
-                <div class="card-body mb-8">
-                    <p class="card-text">
-
-                    {% if pages %}
-                    <ul class="list-group">
-                    {% for page in pages %}
-                        <li class="list-group-item">
-                            <a style="color:rgb(204, 167, 120)" href="{{ page.url }}"><strong>{{ page.title }}</strong></a>
-                        </li>
-                    {% endfor %}
-                    </ul>
-                    {% else %}
-                        <strong>There are no pages present.</strong>
-                    {% endif %}
-                    </p>
-                </div>
+            <a class=" text-center" style="color:rgb(211, 124, 11)"><h2>Most Viewed News</h2></a>
+            <div class="card-body mb-8">
+                <p class="card-text">
+                {% if pages %}
+                <ul class="list-group">
+                {% for page in pages %}
+                    <li class="list-group-item">
+                        <a style="color:rgb(204, 167, 120)" href="{{ page.url }}"><strong>{{ page.title }}</strong></a>
+                    </li>
+                {% endfor %}
+                </ul>
+                {% else %}
+                    <strong>There are no pages present.</strong>
+                {% endif %}
+                </p>
+            </div>
         </div>
-
     </div>
 </div>
 
