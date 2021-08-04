@@ -453,7 +453,9 @@ def teamView(request):
 class VoteTeamsView(View):
     @method_decorator(login_required)
     def get(self, request):
+        
         team_id = request.GET['team_id']
+       
         try:
             team = Team.objects.get(id=int(team_id))
         except Team.DoesNotExist:
