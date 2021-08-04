@@ -9,7 +9,7 @@
 {% block body_block %}
 <div class="jumbotron p-4">
     <div class="container">
-        <h1 class="jumbotron-heading">Add a News to {{ category.name }}</h1>
+    <h1 class="jumbotron-heading">Add a News to {{ category.name }}</h1>
     </div>
 </div>
 <div class="container">
@@ -25,7 +25,8 @@
             {{ field }}<br />
             <div class="p-2"></div>
         {% endfor %}
-            <button class="btn btn-primary" type="submit" name="submit">
+            <br />
+            <button class="btn btn-danger" type="submit" name="submit">
                 Add News
             </button>
             <div class="p-5"></div>

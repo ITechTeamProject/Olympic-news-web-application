@@ -14,7 +14,7 @@
     <div class="jumbotron p-4">
         <div class="container">
             <h1 class="jumbotron-heading">{{ category.name }}</h1>
-            <a href="{% url 'rango:team' category.slug %}">Participating Team</a>
+            <a style="color:rgb(211, 124, 11)" href="{% url 'rango:team' category.slug %}">Participating Team</a>
             <!--<div>
                 <strong id="like_count">{{ category.likes }}</strong> likes
                 {% if user.is_authenticated %}
@@ -30,7 +30,7 @@
     <ul>
         {% for page in pages %}
             <li>
-                <a href="{% url 'rango:goto' %}?page_id={{ page.id }}">{{ page.title }}</a>
+                <a style="color:rgb(204, 167, 120)" href="{% url 'rango:goto' %}?page_id={{ page.id }}">{{ page.title }}</a>
                 {% if page.views > 1 %}
                     ({{ page.views }} views)
                 {% elif page.views == 1 %}
@@ -44,7 +44,7 @@
     {% endif %}
     
     {% if user.is_authenticated %}
-    <a href="{% url 'rango:add_page' category.slug %}">Add news</a><br/>
+    <a style="color:rgb(255, 36, 36)" href="{% url 'rango:add_page' category.slug %}">Add news</a><br/>
     {% endif %}
     {% else %}
     The specified sport does not exist.
@@ -59,7 +59,7 @@
                 <input class="form-control" type="text" size="50" name="query" value="{{ query }}" id="query" />
             </div>
     
-            <button class="btn btn-primary" type="submit" name="submit">Search</button>
+            <button class="btn btn-danger" type="submit" name="submit">Search</button>
         </form>
     </div>
     {% endif %}
