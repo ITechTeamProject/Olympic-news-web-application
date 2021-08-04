@@ -47,7 +47,8 @@
                     <ul class="navbar-nav ml-md-auto">
                         <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'auth_password_change' %}">Change Password</a></li>
                         <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
-                        <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:profile' user.username %}">Profile</a></li>
+                        <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:profile' user.username %}">
+                            <span data-feather="user"></span></a></li>
                     </ul>
                     {% else %}
                     <!-- navigation bar: for a visitor -->
