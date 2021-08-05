@@ -1,0 +1,36 @@
+body {
+    background-color:#eee;
+}
+
+.head-container {
+    text-align:center;
+    padding-top: 30px;
+}
+
+.body-container {
+    margin: auto;
+    padding-top: 30px;
+    width: 50%;
+    height: 100%;
+}
+
+.body-container .helptext {
+    color: rgb(245, 99, 99);
+}
+
+.body-container .form-signin {
+    text-align: center;
+}
+
+.body-container .btn {
+    margin: auto;
+    width: 50%;
+}
+
+.body-container .alert {
+    padding-top: 30px;
+}
+
+.body-container .alert-link {
+    color: rgb(221, 75, 75);
+}

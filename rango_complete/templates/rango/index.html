@@ -8,29 +8,32 @@
 {% endblock %}
 
 {% block body_block %}
-<!-- the hearder part -->
-<div class="text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">Welcome to Olympic News!</h1>
-    </div>
-    <img src="{% static 'images/Tokyo.png' %}" alt="Picture of Tokyo" style="width: 100%; height: 100%"/>
-</div>
+<body>
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
 
-<!-- displaying the most viewed news at the middle of the page -->
-<div class="container p-4">
-    <div class="row">
-        <div class="container">
-            <a class=" text-center" style="color:rgb(211, 124, 11)"><h2>Most Viewed News</h2></a>
-            <div class="card-body mb-8">
+    <!-- the hearder part -->
+    <div class="head-container">
+        <h1 class="jumbotron-heading">Welcome to Olympic News!</h1>
+        <img src="{% static 'images/Tokyo.png' %}" alt="Picture of Tokyo" style="width: 100%; height: 100%"/>
+    </div>
+
+    <!-- displaying the most viewed news at the middle of the page -->
+    <div class="body-container">
+        <div class="row">
+            <div class="top-container">
+                <h2>Most Viewed News</h2>
+            </div>
+            <div class="card-container card-body">
                 <p class="card-text">
                 {% if pages %}
-                <ul class="list-group">
-                {% for page in pages %}
-                    <li class="list-group-item"> <!-- providing href links to the most views news pages-->
-                        <a style="color:rgb(204, 167, 120)" href="{{ page.url }}"><strong>{{ page.title }}</strong></a>
-                    </li>
-                {% endfor %}
-                </ul>
+                    <ul class="list-group">
+                    {% for page in pages %}
+                        <!-- providing href links to the most views news pages-->
+                        <li class="list-group-item">
+                            <a class="page-container" href="{{ page.url }}"><strong>{{ page.title }}</strong></a>
+                        </li>
+                    {% endfor %}
+                    </ul>
                 {% else %}
                     <strong>There are no pages present.</strong>
                 {% endif %}
@@ -38,6 +41,5 @@
             </div>
         </div>
     </div>
-</div>
-
+</body>
 {% endblock %} 

@@ -1,0 +1,13 @@
+.body-container .sport{
+    font-size: 30px;
+}
+
+.body-container .detail {
+    color: rgb(200, 25, 25);
+    text-decoration: underline;
+}
+
+.body-container .btn{
+    background-color: rgb(204, 167, 120);
+    color: white;
+}
