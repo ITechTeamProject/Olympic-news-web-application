@@ -31,12 +31,15 @@
       <!-- click button to log in -->
       <button class="btn btn-md btn-block btn-outline-danger" type="submit" value="Submit">LOG IN</button>
       <!--Third party login link-->
-      <div class="faslog">
-        <a href="{% url 'social:begin' 'github' %}">Fast Login GitHub</a><br>
-        <a href="{% url 'social:begin' 'twitter' %}">Fast Login Twitter</a>
-      </div>
+      <HR>
       <p class="alert">
-        <!-- if not registered, redirecting to the register page -->
+        Or log in with<br />
+        <a class="alert-link" href="{% url 'social:begin' 'github' %}"><span data-feather="github"></span>GitHub</a>
+        <a class="alert-link" href="{% url 'social:begin' 'twitter' %}"><span data-feather="twitter"></span>Twitter</a>
+      </p>
+      
+      <!-- if not registered, redirecting to the register page -->
+      <p class="alert">
         Not registered?
         <a class="alert-link" href="{% url 'registration_register' %}">Register here!</a>
       </p>

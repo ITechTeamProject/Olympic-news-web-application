@@ -27,14 +27,7 @@ body {
     width: 50%;
 }
 
-.body-container .alert {
-    padding-top: 30px;
-}
-
 .body-container .alert-link {
     color: rgb(221, 75, 75);
-}
-.body-container .faslog a:link
-{
-    color:rgb(255, 36, 36);
+    margin-left:20px;
 }

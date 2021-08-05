@@ -13,19 +13,20 @@
 <!-- the header part -->
 {% block body_block %}
 <body>
-<link rel="stylesheet" type="text/css" href="{% static 'css/cate.css' %}">
-{% if category %}
-<div class="jumbotron p-4">
-    <div class="container">
-        <h1 class="jumbotron-heading">{{ category.name }}</h1>
-        <a class="cate" href="{% url 'rango:team' category.slug %}">Participating Team</a>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cate.css' %}">
+    {% if category %}
+    <div class="jumbotron p-4">
+        <div class="container">
+            <h1 class="jumbotron-heading">{{ category.name }}</h1>
+            <a class="cate" href="{% url 'rango:team' category.slug %}">Participating Team</a>
+        </div>
     </div>
-</div>
+
     <div class="addn-c">
         <h2 class="jumbotron-heading">News</h2>
         {% if user.is_authenticated %}
         <!-- granted users an 'add page' function if logged in-->
-        <a href="{% url 'rango:add_page' category.slug %}">Add news</a><br/><br />
+        <a class="cate" href="{% url 'rango:add_page' category.slug %}">Add news</a><br/><br />
         {% endif %}
         {% else %}
         The specified sport does not exist.

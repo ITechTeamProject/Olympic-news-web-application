@@ -21,10 +21,6 @@
     color: #ffc107;
 }
 
-.body-container .user-picture {
-    float: left;
-}
-
 .body-container .user-info {
-    float: right;
+    margin-left: 75px;
 }

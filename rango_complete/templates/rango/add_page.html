@@ -18,7 +18,7 @@
 </div>
 
 <!-- helper text and entries for adding news -->
-<div class="text-center p-5">
+<div class="text-center p-5 h-100">
     <form role="form" id="page_form" method="post" action="{% url 'rango:add_page' category.slug %}">
     {% csrf_token %}
     {% for hidden in form.hidden_fields %}
