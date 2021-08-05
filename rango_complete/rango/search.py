@@ -40,3 +40,5 @@ def run_query(search_terms):
             'summary': result['snippet']})
 
     return results
+
+
