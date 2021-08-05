@@ -8,6 +8,8 @@
 {% endblock %}
 
 {% block body_block %}
+<body>
+<link rel="stylesheet" type="text/css" href="{% static 'css/cate.css' %}">
 <!-- the header part -->
 <div class="jumbotron p-4">
     <div class="container">
@@ -15,7 +17,7 @@
     </div>
 </div>
 
-<div class="text-center p-5">
+<div class="text-center p-5 h-100">
     <form role="form" id="category_form" method="post" action="{% url 'rango:add_category' %}">
     {% csrf_token %}
     {% for hidden in form.hidden_fields %}
@@ -23,13 +25,14 @@
     {% endfor %}
     {% for field in form.visible_fields %}
         {{ field.errors }}
-        <p style="font-size:20px;">{{ field.help_text }}</p>
-        <p style="font-size:20px;">{{ field }}</p>
+        <p>{{ field.help_text }}</p>
+        <p>{{ field }}</p>
         
     {% endfor %}
-        <div class="p-5">
+        <div class="p-4">
             <button class="btn btn-lg btn-outline-danger" type="submit" name="submit">Create Sport</button>
         </div>
     </form>
 </div>
+</body>
 {% endblock %}

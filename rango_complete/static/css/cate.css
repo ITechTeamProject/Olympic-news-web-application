@@ -1,0 +1,37 @@
+.cate
+{
+    color:rgb(255, 36, 36);
+    text-decoration: underline;
+}
+.cate:hover
+{
+    color:#ffc107;
+}
+.addn-c a
+{
+    color:rgb(255, 36, 36);
+}
+ul li a
+{
+    color:#ffc107;
+}
+.list-group-item button
+{
+    background-color:#ffc107;
+    color:white;
+    border-color:#ffc107;
+}
+.list-group-item button:hover
+{
+    background-color:rgb(175, 30, 59);
+    color:ivory;
+    border-color:rgb(175, 30, 59);
+}
+.text-center p
+{
+    font-size:20px;
+}
+.p-4 button
+{
+    width: auto;
+}

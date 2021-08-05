@@ -1,0 +1,42 @@
+.navbar
+{
+    background-color: rgb(175, 30, 59);
+}
+.navbar a
+{
+    color:ivory;
+}
+.navbar a:hover
+{
+    background-color:#ffc107;
+    color:ivory;
+}
+.navbar-nav
+{
+    color:ivory; 
+}
+
+li a.nav-link
+{
+    color:ivory; 
+}
+li a.nav-link:hover
+{
+    background-color:#ffc107;
+    color:white;
+}
+ul li a
+{
+    color:ivory; 
+}
+ul li a:hover
+{
+    color:#ffc107;
+}
+footer
+{
+    width: 100%; 
+    height: auto; 
+    background-color:rgb(175, 30, 59);
+    color:ivory; 
+}

@@ -20,7 +20,10 @@ def populate():
         'views':50},
         {'title':'Republic of Korea wins archery women\'s team gold for ninth straight Games',
         'url':'https://olympics.com/tokyo-2020/en/news/republic-of-korea-wins-archery-women-s-team-gold-for-ninth-straight-games',
-        'views':30} ]
+        'views':30}, 
+        {'title': 'Tokyo 2020 archery day 4: India set to challenge \'unstoppable\' Republic of Korea in men\'s team event',
+        'url':'https://olympics.com/tokyo-2020/en/news/tokyo-2020-archery-day-4-india-set-to-challenge-unstoppable-republic-of-korea-in',
+        'views':80},]
 
     athletics_pages = [
         {'title':'Athletes to watch: Noah Lyles',
@@ -32,7 +35,7 @@ def populate():
         {'title':'How to watch and follow athletics competition for Friday, 30th July at Tokyo 2020',
         'url':'https://olympics.com/tokyo-2020/en/news/watch-follow-athletics-competition-olympics-tokyo-2020-friday-29-july',
         'views':40},
-        {'title':'Canada\’s Andre de Grasse gets hands on 200m gold medal adding to Rio 2016 silver',
+        {'title':'Canada’s Andre de Grasse gets hands on 200m gold medal adding to Rio 2016 silver',
         'url':'https://olympics.com/tokyo-2020/en/news/canada-s-andre-de-grasse-wins-200m-gold',
         'views':98},
         {'title':'Sydney McLaughlin smashes world record to win gold in women\'s 400m hurdles final',
@@ -40,12 +43,18 @@ def populate():
         'views':75} ]
 
     badminton_pages = [
-        {'title':'Tokyo 2020 Badminton day 9: Women\'s singles gold, men\'s singles semi-finals',
-        'url':'http://bottlepy.org/docs/dev/',
+        {'title':'Tokyo 2020 Olympic badminton draw revealed',
+        'url':'https://olympics.com/tokyo-2020/en/news/tokyo-2020-olympic-badminton-draw-revealed',
         'views':120},
-        {'title':'Tokyo 2020 Badminton day 8: Men\'s doubles set to reach exciting conclusion',
-        'url':'http://flask.pocoo.org',
-        'views':70} ]
+        {'title':'Tokyo 2020 Badminton day 10: Men\'s singles and women\'s doubles gold medals at stake',
+        'url':'https://olympics.com/tokyo-2020/en/news/tokyo-2020-badminton-day10-finals',
+        'views':70}, 
+        {'title':'Carolina Marin: Olympic badminton champion to miss Tokyo 2020 with torn ACL',
+        'url':'https://olympics.com/tokyo-2020/en/news/carolina-marin-to-miss-tokyo-2020-through-injury',
+        'views':90},
+        {'title':'JIndonesia\'s Anthony Ginting three wins away from making history',
+        'url':'https://olympics.com/tokyo-2020/en/news/indonesia-anthony-ginting-three-wins-away-from-making-history',
+        'views':62} ]
 
     baseball_pages = [
         {'title':'Israel’s baseball team: From dreamers to Olympians',
@@ -61,10 +70,13 @@ def populate():
     basketball_pages = [
         {'title':'Matisse Thybulle: Australian basketball star, artistic defender and vlogging sensation',
         'url':'https://olympics.com/tokyo-2020/en/news/matisse-thybulle-australian-basketball-star-artistic-defender-and-vlogging-sensa',
-        'views':105},
+        'views':75},
         {'title':'Basketball: NBA winners Jrue Holiday and Khris Middleton en route to Tokyo 2020',
         'url':'https://olympics.com/tokyo-2020/en/news/basketball-nba-winners-jrue-holiday-khris-middleton-route-tokyo-2020',
-        'views':23} ]
+        'views':53},
+        {'title':'Tokyo 2020: When do Kevin Durant and the USA men\'s basketball team play next?',
+        'url':'https://olympics.com/tokyo-2020/en/news/usa-basketball-men-kevin-durant-semi-final-next-australia-preview-watch',
+        'views':105} ]
     
     diving_pages = [
         {'title':'Jennifer Abel and Melissa Citrini-Beaulieu react after winning synchro diving silver for Canada',
