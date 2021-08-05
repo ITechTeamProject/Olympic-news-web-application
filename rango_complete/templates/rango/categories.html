@@ -3,9 +3,9 @@
     {% for c in categories %}
         {% if c == current_category %}
         <li class="nav-item">
-            <a style="color:rgb(211, 124, 11)" href="{% url 'rango:show_category' c.slug %}"><span data-feather="archive"></span>{{ c.name }}</a></li>
+            <a href="{% url 'rango:show_category' c.slug %}"><span data-feather="archive"></span>{{ c.name }}</a></li>
         {% else %}
-        <li class="nav-item">
+        <li class="nav-item1">
             <a class="nav-link" href="{% url 'rango:show_category' c.slug %}"><span data-feather="archive"></span>{{ c.name }}</a>
         </li>
         {% endif %}

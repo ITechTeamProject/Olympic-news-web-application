@@ -8,6 +8,8 @@
 {% endblock %}
 
 {% block body_block %}
+<body>
+<link rel="stylesheet" type="text/css" href="{% static 'css/cate.css' %}">
 <!-- the header part(displaying which category you will add news at) -->
 <div class="jumbotron p-4">
     <div class="container">
@@ -24,12 +26,13 @@
     {% endfor %}
     {% for field in form.visible_fields %}
         {{ field.errors }}
-        <p style="font-size:20px;">{{ field.help_text }}</p>
-        <p style="font-size:20px;">{{ field }}</p>
+        <p>{{ field.help_text }}</p>
+        <p>{{ field }}</p>
     {% endfor %}
-        <div class="p-5">
-            <button class="btn btn-lg btn-outline-danger" type="submit" name="submit" style="width: auto;">Add News</button>
+        <div class="p-4">
+            <button class="btn btn-lg btn-outline-danger" type="submit" name="submit">Add News</button>
         </div>
     </form>
 </div> 
+</body>
 {% endblock %}
