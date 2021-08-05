@@ -1,13 +1,23 @@
 .body-container .sport{
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .body-container .detail {
-    color: rgb(200, 25, 25);
+    color: rgb(255, 36, 36);
     text-decoration: underline;
 }
 
 .body-container .btn{
-    background-color: rgb(204, 167, 120);
+    background-color: #ffc107;
     color: white;
 }
+
+.col-md-4 a{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.col-md-4 strong{
+    color:#ffc107;
+}
+
