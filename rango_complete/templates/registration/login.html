@@ -10,7 +10,6 @@
 {% block body_block %}
 <body>
   <link href="{% static 'css/registration.css' %}" rel="stylesheet">
-
   <!-- the header part -->
   <div class="head-container">
       <h1 class="jumbotron-heading">Log in to your Olympic News Account</h1>
@@ -31,14 +30,17 @@
 
       <!-- click button to log in -->
       <button class="btn btn-md btn-block btn-outline-danger" type="submit" value="Submit">LOG IN</button>
+      <!--Third party login link-->
+      <div class="faslog">
+        <a href="{% url 'social:begin' 'github' %}">Fast Login GitHub</a><br>
+        <a href="{% url 'social:begin' 'twitter' %}">Fast Login Twitter</a>
+      </div>
       <p class="alert">
         <!-- if not registered, redirecting to the register page -->
         Not registered?
         <a class="alert-link" href="{% url 'registration_register' %}">Register here!</a>
       </p>
     </form>
-    
-    
   </div>
 </body>
 {% endblock %}
