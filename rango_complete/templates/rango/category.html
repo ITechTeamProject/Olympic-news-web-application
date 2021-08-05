@@ -12,15 +12,24 @@
 
 <!-- the header part -->
 {% block body_block %}
+<body>
+<link rel="stylesheet" type="text/css" href="{% static 'css/cate.css' %}">
 {% if category %}
 <div class="jumbotron p-4">
     <div class="container">
         <h1 class="jumbotron-heading">{{ category.name }}</h1>
-        <a style="color:rgb(211, 124, 11); text-decoration: underline" href="{% url 'rango:team' category.slug %}">Participating Team</a>
+        <a class="cate" href="{% url 'rango:team' category.slug %}">Participating Team</a>
     </div>
 </div>
-    <div>
+    <div class="addn-c">
         <h2 class="jumbotron-heading">News</h2>
+        {% if user.is_authenticated %}
+        <!-- granted users an 'add page' function if logged in-->
+        <a href="{% url 'rango:add_page' category.slug %}">Add news</a><br/><br />
+        {% endif %}
+        {% else %}
+        The specified sport does not exist.
+        {% endif %}
     </div>
 
     {% if pages %}
@@ -28,7 +37,7 @@
     <ul>
         {% for page in pages %}
         <li>
-            <a style="color:rgb(204, 167, 120)" href="{% url 'rango:goto' %}?page_id={{ page.id }}">{{ page.title }}</a>
+            <a href="{% url 'rango:goto' %}?page_id={{ page.id }}">{{ page.title }}</a>
             {% if page.views > 1 %}
                 ({{ page.views }} views)
             {% elif page.views == 1 %}
@@ -41,13 +50,6 @@
     <strong>No news currently in this sport.</strong>
     {% endif %}
     
-    {% if user.is_authenticated %}
-    <!-- granted users an 'add page' function if logged in-->
-    <a style="color:rgb(255, 36, 36)" href="{% url 'rango:add_page' category.slug %}">Add news</a><br/>
-    {% endif %}
-    {% else %}
-    The specified sport does not exist.
-    {% endif %}
     
     {% if user.is_authenticated %}
     <div class="container">
@@ -89,4 +91,5 @@
             </div>
         {% endif %}
     </div>
+</body>
 {% endblock %} 

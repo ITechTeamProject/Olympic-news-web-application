@@ -20,17 +20,16 @@
     
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/basecolor.css' %}">
     </head>
     
     <!-- setting navigation bar -->
-    <style type="text/css">
-    .navbar{background-color: rgb(175, 30, 59);}
-    </style>
     <body>
         <header> 
             <!-- navigation bar to homepage-->
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top p-0">
-                <a style="color:ivory;" class="navbar-brand p-2" href="{% url 'rango:index' %}">Olympic News</a>
+            <nav class="navbar navbar-expand-md fixed-top p-0">
+                <a class="navbar-brand p-2" href="{% url 'rango:index' %}">Olympic News</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -39,26 +38,26 @@
                     {% if user.is_authenticated %}
                     <!-- navigation bar: for a logged in user -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:index' %}">Home</a></li>
-                        <li class="nav-item "><a style="color:ivory;" class="nav-link" href="{% url 'rango:teams' %}">Teams</a></li>
-                        <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:add_category' %}">Add Sport</a></li>
-                        <li class="nav-item "><a style="color:ivory;" class="nav-link" href="{% url 'rango:about' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:index' %}">Home</a></li>
+                        <li class="nav-item "><a class="nav-link" href="{% url 'rango:teams' %}">Teams</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:add_category' %}">Add Sport</a></li>
+                        <li class="nav-item "><a class="nav-link" href="{% url 'rango:about' %}">About</a></li>
                     </ul>    
                     <ul class="navbar-nav ml-md-auto">
-                        <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'auth_password_change' %}">Change Password</a></li>
-                        <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
-                        <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:profile' user.username %}">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'auth_password_change' %}">Change Password</a></li>
+                        <li class="nav-item"><a  class="nav-link" href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
+                        <li class="nav-item"><a  class="nav-link" href="{% url 'rango:profile' user.username %}">
                             <span data-feather="user"></span></a></li>
                     </ul>
                     {% else %}
                     <!-- navigation bar: for a visitor -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'rango:index' %}">Home</a></li>
-                        <li class="nav-item "><a style="color:ivory;" class="nav-link" href="{% url 'rango:about' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'rango:index' %}">Home</a></li>
+                        <li class="nav-item "><a class="nav-link" href="{% url 'rango:about' %}">About</a></li>
                     </ul>    
                     <ul class="navbar-nav ml-md-auto">
-                        <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'auth_login' %}">Login</a></li>
-                        <li class="nav-item"><a style="color:ivory;" class="nav-link" href="{% url 'registration_register' %}">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'auth_login' %}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'registration_register' %}">Sign Up</a></li>
                     </ul>
                     {% endif %}
                     </ul>
@@ -84,34 +83,34 @@
                     {% block body_block %}{% endblock %}
 
                     <!-- setting footer -->
-                    <footer style=" width: 100%; height: auto; background-color:rgb(175, 30, 59)" class="bd-footer py-3 mt-5 mx-auto">
+                    <footer class="bd-footer py-3 mt-5 mx-auto">
                         <!-- setting links at the footer -->
-                        <div style="color:ivory;" class="container-fluid text-center text-md-left">
+                        <div class="container-fluid text-center text-md-left">
                             <!-- grid row -->
                             <div class="row">
                                 <div class="col-md-4 mt-md-0 mt-3">
                                     <h5 class="text-uppercase">OLYMPIC NEWS</h5>
-                                    <p>&copy; 2021 IT Production Workshop</p>
+                                    <p><small>&copy; 2021 IT Production Workshop</small></p>
                                 </div>
                                 <hr class="clearfix w-100 d-md-none pb-3">
                                 <div class="col-md-3 mb-md-0 mb-3">
                                     <h5 class="text-uppercase">Olympic Games</h5>
                                     <ul class="list-unstyled">
-                                        <li><a style="color:ivory;" href="{% url 'rango:index' %}">Tokyo 2020</a></li>
-                                        <li><a style="color:ivory;" href="{% url 'rango:index' %}">All Olympic Games</a></li>
+                                        <li><a href="{% url 'rango:index' %}">Tokyo 2020</a></li>
+                                        <li><a href="{% url 'rango:index' %}">All Olympic Games</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-2 mb-md-0 mb-3">
                                     <h5 class="text-uppercase">News</h5>
                                     <ul class="list-unstyled">
-                                        <li><a style="color:ivory;" href="{% url 'rango:index' %}">Games</a></li>
-                                        <li><a style="color:ivory;" href="{% url 'rango:teams' %}">Teams</a></li>
+                                        <li><a href="{% url 'rango:index' %}">Games</a></li>
+                                        <li><a href="{% url 'rango:teams' %}">Teams</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-2 mb-md-0 mb-3">
                                     <h5 class="text-uppercase">Contact Us</h5>
                                     <ul class="list-unstyled">
-                                        <li><a style="color:ivory;" href="{% url 'rango:contact' %}">Email</a></li>
+                                        <li><a href="{% url 'rango:contact' %}">Email</a></li>
                                     </ul>
                                 </div>
                             </div>
