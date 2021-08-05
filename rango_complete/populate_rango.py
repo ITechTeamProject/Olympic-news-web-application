@@ -35,7 +35,7 @@ def populate():
         {'title':'How to watch and follow athletics competition for Friday, 30th July at Tokyo 2020',
         'url':'https://olympics.com/tokyo-2020/en/news/watch-follow-athletics-competition-olympics-tokyo-2020-friday-29-july',
         'views':40},
-        {'title':'Canada\’s Andre de Grasse gets hands on 200m gold medal adding to Rio 2016 silver',
+        {'title':'Canada’s Andre de Grasse gets hands on 200m gold medal adding to Rio 2016 silver',
         'url':'https://olympics.com/tokyo-2020/en/news/canada-s-andre-de-grasse-wins-200m-gold',
         'views':98},
         {'title':'Sydney McLaughlin smashes world record to win gold in women\'s 400m hurdles final',
