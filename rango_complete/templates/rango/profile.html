@@ -8,38 +8,40 @@
 {% endblock %}
 
 {% block body_block %}
+<body>
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
 
-<div class="jumbotron p-4">
-    <div class="container">
-        <h1 class="jumbotron-heading">{{ selected_user.username }}'s Profile</h1>
-    </div>
-</div>
-
-
-<div class="container h-100">
-    <div class="row">
-        <div class="col-md-4 mt-md-0 mt-3">
-            {% if user_profile.picture %}
-            <img src="{{ MEDIA_URL }}{{ user_profile.picture }}" width="300" height="300" alt="{{ selected_user.username }}'s profile image"/><br />
-            {% else %}
-            <img src="https://lorempixel.com/300/300/sports/" width="300" height="300" alt="Placeholder image" />
-            {% endif %}
-        </div>
-        
-        <div class="col-md-4 mt-md-0 mt-3">
-            {% if selected_user == user %}
-            <form method="post" action="." enctype="multipart/form-data"">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <!-- update profile picture -->
-                <input type="submit" value="Update" />
-            </form>
-            {% else %}
-            <!-- display user webiste -->
-            <strong>Website:</strong>
-            <a href="{{ user_profile.website }}">{{ user_profile.website }}</a>
-            {% endif %}
+    <div class="jumbotron p-4">
+        <div class="container">
+            <h1 class="jumbotron-heading">{{ selected_user.username }}'s Profile</h1>
         </div>
     </div>
-</div>
+    
+    <div class="body-container">
+        <div class="row">
+            <div class="user-picture">
+                {% if user_profile.picture %}
+                <img src="{{ MEDIA_URL }}{{ user_profile.picture }}" alt="{{ selected_user.username }}'s profile image"/><br />
+                {% else %}
+                <img src="https://lorempixel.com/300/300/sports/" alt="Placeholder image" />
+                {% endif %}
+            </div>
+            
+            <div class="user-info">
+                {% if selected_user == user %}
+                <form method="post" action="." enctype="multipart/form-data"">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <!-- update profile picture -->
+                    <input type="submit" value="Update" />
+                </form>
+                {% else %}
+                <!-- display user webiste -->
+                <strong>Website:</strong>
+                <a href="{{ user_profile.website }}">{{ user_profile.website }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
 {% endblock %}
