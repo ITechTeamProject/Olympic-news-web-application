@@ -11,13 +11,13 @@
     background-color: #ffc107;
     color: white;
 }
-.col-md-4 a
-{
+
+.col-md-4 a{
     font-weight: bold;
     font-size: 18px;
 }
-.col-md-4 strong
-{
+
+.col-md-4 strong{
     color:#ffc107;
 }
 

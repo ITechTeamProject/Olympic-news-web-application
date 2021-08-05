@@ -5,7 +5,7 @@
 
 .body-container {
     margin: auto;
-    width: 800px;
+    width: 75%;
 }
 
 .body-container .top-container {
@@ -19,4 +19,12 @@
 .body-container .page-container {
     width: 100%;
     color: #ffc107;
+}
+
+.body-container .user-picture {
+    float: left;
+}
+
+.body-container .user-info {
+    float: right;
 }
