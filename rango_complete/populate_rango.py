@@ -86,6 +86,55 @@ def populate():
         'url':'https://olympics.com/tokyo-2020/en/news/exceptional-china-win-diving-gold-in-synchronised-3m-springboard',
         'views':7} ]
 
+    fencing_pages = [
+        {'title':'ROC win women\'s team foil fencing',
+        'url':'https://olympics.com/tokyo-2020/en/news/roc-win-women-s-team-foil-fencing',
+        'views':65},
+        {'title':'Chinese fencer SUN Yiwen wins gold in épée',
+        'url':'https://olympics.com/tokyo-2020/en/news/china-sun-yiwen-wins-gold-in-womens-epee-individual-fencing',
+        'views':265} ]
+
+    football_pages = [
+        {'title':'Women\'s football bronze on the line for Team USA and Australia',
+        'url':'https://olympics.com/tokyo-2020/en/news/women-s-football-bronze-on-the-line-for-team-usa-and-australia',
+        'views':75},
+        {'title':'Brazil rejoices as Marta and Formiga break Olympic football records',
+        'url':'https://olympics.com/tokyo-2020/en/news/football-brazil-rejoices-marta-formiga-pele-olympic-records',
+        'views':34} ]
+
+    rowing_pages = [
+        {'title':'Tokyo 2020 rowing: First women\'s four Olympic champions to be crowned since Barcelona 1992',
+        'url':'https://olympics.com/tokyo-2020/en/news/preview-rowing-28-july-tokyo-2020-rowing-day-6-finals',
+        'views':21},
+        {'title':'Croatia\'s Martin and Valent Sinkovic win men’s pairs gold',
+        'url':'https://olympics.com/tokyo-2020/en/news/croatia-martin-and-valent-sinkovic-win-men-pairs-gold',
+        'views':26} ]
+
+    shooting_pages = [
+        {'title':'Tokyo Olympics: First gold of Games goes to China\'s Yang Qian in shooting',
+        'url':'https://www.bbc.co.uk/sport/olympics/57952436',
+        'views':593},
+        {'title':'Shooting-Zhang sets rifle 3P world record, Quiquampoix wins rapid gold',
+        'url':'https://www.reuters.com/world/china/shooting-reitz-primed-title-defence-25m-rapid-fire-pistol-2021-08-02/',
+        'views':109} ]
+
+    skateboarding_pages = [
+        {'title':'Skateboarding fashion steals the show at Tokyo 2020',
+        'url':'https://olympics.com/tokyo-2020/en/news/skateboarding-fashion-steals-the-show-tokyo-2020',
+        'views':6},
+        {'title':'Tokyo 2020 men\'s street skateboarding final: History on the line in hunt for first-ever skateboarding gold',
+        'url':'https://olympics.com/tokyo-2020/en/news/tokyo-2020-men-s-street-skateboarding-final-history-on-the-line-in-hunt-for-firs',
+        'views':12} ]
+
+    table_tennis_pages = [
+        {'title':'ISHIKAWA Kasumi plans to shake up table tennis table with newfound skills',
+        'url':'https://olympics.com/tokyo-2020/en/news/ishikawa-kasumi-plans-to-shake-up-table-tennis-table-with-newfound-skills',
+        'views':54},
+        {'title':'Ma Long wins 2nd Olympic gold in men’s table tennis',
+        'url':'https://apnews.com/article/2020-tokyo-olympics-sports-mens-table-tennis-ma-long-china-olympic-team-b5a29ee5b068fba5c7f3746587372eee',
+        'views':372} ]
+        
+
     archery_teams = [
         {'country':'Canada', 'likes':1125 },
         {'country':'Japan',  'likes':2052 },
@@ -99,7 +148,6 @@ def populate():
         {'country':'Netherlands', 'likes':1732 },
         {'country':'Switzerland', 'likes':234  }
     ]
-
     athletics_teams = [
         {'country':'Finland',  'likes':1241     },
         {'country':'Brazil',    'likes':234     },
@@ -161,13 +209,85 @@ def populate():
         {'country':'Netherlands', 'likes':132 },
         {'country':'Switzerland', 'likes':234  }
     ]
+    fencing_teams = [
+        {'country':'United States',  'likes':2307 },
+        {'country':'Great Britain',  'likes':1747 },
+        {'country':'Denmark', 'likes':763 },
+        {'country':'ROC', 'likes':1532 },
+        {'country':'Republic of Korea', 'likes':814  },
+        {'country':'People\'s Republic of China', 'likes':1962 },
+        {'country':'Australia',  'likes': 1934  },
+        {'country':'Netherlands', 'likes':132 },
+        {'country':'Switzerland', 'likes':234  }
+    ]
+    football_teams = [
+        {'country':'United States',  'likes':2307 },
+        {'country':'Great Britain',  'likes':1747 },
+        {'country':'Denmark', 'likes':763 },
+        {'country':'ROC', 'likes':1532 },
+        {'country':'Republic of Korea', 'likes':814  },
+        {'country':'People\'s Republic of China', 'likes':1962 },
+        {'country':'Australia',  'likes': 1934  },
+        {'country':'Netherlands', 'likes':132 },
+        {'country':'Switzerland', 'likes':234  }
+    ]
+    rowing_teams = [
+        {'country':'United States',  'likes':2307 },
+        {'country':'Great Britain',  'likes':1747 },
+        {'country':'Denmark', 'likes':763 },
+        {'country':'ROC', 'likes':1532 },
+        {'country':'Republic of Korea', 'likes':814  },
+        {'country':'People\'s Republic of China', 'likes':1962 },
+        {'country':'Australia',  'likes': 1934  },
+        {'country':'Netherlands', 'likes':132 },
+        {'country':'Switzerland', 'likes':234  }
+    ]
+    shooting_teams = [
+        {'country':'United States',  'likes':2307 },
+        {'country':'Great Britain',  'likes':1747 },
+        {'country':'Denmark', 'likes':763 },
+        {'country':'ROC', 'likes':1532 },
+        {'country':'Republic of Korea', 'likes':814  },
+        {'country':'People\'s Republic of China', 'likes':1962 },
+        {'country':'Australia',  'likes': 1934  },
+        {'country':'Netherlands', 'likes':132 },
+        {'country':'Switzerland', 'likes':234  }
+    ]
+    skateboarding_teams = [
+        {'country':'United States',  'likes':2307 },
+        {'country':'Great Britain',  'likes':1747 },
+        {'country':'Denmark', 'likes':763 },
+        {'country':'ROC', 'likes':1532 },
+        {'country':'Republic of Korea', 'likes':814  },
+        {'country':'People\'s Republic of China', 'likes':1962 },
+        {'country':'Australia',  'likes': 1934  },
+        {'country':'Netherlands', 'likes':132 },
+        {'country':'Switzerland', 'likes':234  }
+    ]
+    table_tennis_teams = [
+        {'country':'United States',  'likes':2307 },
+        {'country':'Great Britain',  'likes':1747 },
+        {'country':'Japan', 'likes':2353 },
+        {'country':'ROC', 'likes':1532 },
+        {'country':'Germany', 'likes':3732  },
+        {'country':'People\'s Republic of China', 'likes':7362 },
+        {'country':'Australia',  'likes': 1934  },
+        {'country':'Netherlands', 'likes':132 },
+        {'country':'Switzerland', 'likes':234  }
+    ]
 
     cats = {'Archery': {'pages': archery_pages, 'teams': archery_teams, 'views': 1281, 'likes': 64},
             'Athletics': {'pages': athletics_pages, 'teams': athletics_teams,'views': 5056, 'likes': 32}, 
             'Badminton': {'pages': badminton_pages, 'teams': badminton_teams,'views': 3242, 'likes': 16},
             'Baseball': {'pages': baseball_pages, 'teams': baseball_teams,'views': 323, 'likes': 16},
             'Basketball': {'pages': basketball_pages, 'teams': basketball_teams,'views': 2224, 'likes': 18},
-            'Diving': {'pages': diving_pages, 'teams': diving_teams,'views': 1723, 'likes': 10},}
+            'Diving': {'pages': diving_pages, 'teams': diving_teams,'views': 1723, 'likes': 10},
+            'Fencing': {'pages': fencing_pages, 'teams': fencing_teams,'views': 1532, 'likes': 13},
+            'Football': {'pages': football_pages, 'teams': football_teams,'views': 1713, 'likes': 43},
+            'Rowing': {'pages': rowing_pages, 'teams': rowing_teams,'views': 226, 'likes': 54},
+            'Shooting': {'pages': shooting_pages, 'teams': shooting_teams,'views': 1584, 'likes': 64},
+            'Skateboarding': {'pages': skateboarding_pages, 'teams': skateboarding_teams,'views': 174, 'likes': 10},
+            'Table Tennis': {'pages': table_tennis_pages, 'teams': table_tennis_teams,'views': 3622, 'likes': 36},}
 
     # If you want to add more categories or pages,
     # add them to the dictionaries above.
