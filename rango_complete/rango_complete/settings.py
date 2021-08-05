@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rango',
     'registration',
+    'django.contrib.sites', 
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'rango_complete.urls'
@@ -67,6 +70,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
             ],
         },
     },
@@ -157,3 +163,15 @@ LOGIN_URL = 'auth_login'
 # SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 # SESSION_COOKIE_AGE = 12000
 
+#Third party authentication
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+)
+SITE_ID = 1
+SOCIAL_AUTH_GITHUB_KEY = 'afe10a56f26ec6196c87'
+SOCIAL_AUTH_GITHUB_SECRET = '811d48d58e033025de51955ccc4ae425728ab668'
+
+SOCIAL_AUTH_TWITTER_KEY = 'C01ftp6Nws7dnSY4XTv0ozZth'
+SOCIAL_AUTH_TWITTER_SECRET = 'YrNWO0faQkbvVe8529nBIvJrF3xqO4Mqf1AYPnmbwvsOH0zw5b'
