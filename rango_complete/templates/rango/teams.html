@@ -7,29 +7,31 @@
 {% endblock %}
 
 {% block body_block %}
+<body>
+    <link href="{% static 'css/teams.css' %}" rel="stylesheet">
 
-<div class="jumbotron p-4">
-    <div class="container">
-        <h1 class="jumbotron-heading">Participating Teams</h1>
-        <p>* Sort by views of sport in descending order</p>
+    <div class="jumbotron p-4">
+        <div class="head-container">
+            <h1 class="jumbotron-heading">Participating Teams</h1>
+            <p>* Sort by views of sport in descending order</p>
+        </div>
     </div>
-</div>
-
-<div class="container">
-    <form>
-        {% if sport %}
-        
-        <ul style="font-size: 30px">
-            {% for sports in sport %}
-                <li class="mt-5">Participated teams in {{ sports.name }}
+    
+    <div class="body-container">
+        <form>
+            {% if sport %}
+            <ul>
+                {% for sports in sport %}
+                <li class="sport mt-5">Participated teams in {{ sports.name }}
                     <!-- href to the page of participated teams in this sport-->
-                    <a href = "{% url 'rango:team' sports.slug %}" style="color:rgb(200, 25, 25); text-decoration: underline">vote detail</a>
+                    <a class="detail" href = "{% url 'rango:team' sports.slug %}">vote detail</a>
                 </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <li class="nav-item">There are no sports present.</li>
-        {% endif %}
-    </form>
-</div>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <li>There are no sports present.</li>
+            {% endif %}
+        </form>
+    </div>
+</body>
 {% endblock %} 

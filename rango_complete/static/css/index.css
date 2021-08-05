@@ -1,0 +1,22 @@
+.head-container {
+    text-align:center;
+    padding-top: 20px;
+}
+
+.body-container {
+    margin: auto;
+    width: 800px;
+}
+
+.body-container .top-container {
+    width: 75%;
+    text-align: center;
+    margin: auto;
+    padding-top: 30px;
+    color:rgb(211, 124, 11)
+}
+
+.body-container .page-container {
+    width: 100%;
+    color: #ffc107;
+}
