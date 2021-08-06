@@ -4,6 +4,8 @@ We use Python + Django + CSS + HTML + JS + JQuery + AJAX to complete this projec
  
 # How to run
 After clonning our project, first you need to run the below command to access into rango_complete directory.
+
+
 $ cd rango_complete
 
 
